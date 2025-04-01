@@ -24,15 +24,16 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       'transformacion-digital': {
         title: 'Transformación Digital',
-        subtitle: 'Automatización de procesos para cadena de restaurante',
+        subtitle: 'Digitalización empresarial - Mr Grilled',
         category: 'Digitalización',
         client: 'restaurante Mr Grilled',
         date: '2025',
-        description: 'Digitalizamos una cadena de restaurante sistema de automatización integral para una cadena de restaurante que permitió optimizar la gestión de inventario, pedidos y logística. La implementación de esta sistema redujo los tiempos de procesamiento en un 60% y mejoró las ventas en linea al 98%.',
+        description: 'Digitalización empresarial para la excelencia gastronomica Mr Grilled. Esta digitalización empresarial fue desarrollada con el objetivo principal de fortalecer la presentacia en los motores de busquedas y mejorar la manera en que los clientes interactuan con los servicios que ofrece Mr Grilled',
         features: [
-          'Sistema automatizado para recervar mesas en tiempo real',
-          'Integración con plataforma de e-commerce para omnicanalidad',
-          'Sistema de menú interativo',
+          'Membresia - Deyconic vix',
+          'Sistema de reservas automatizado',
+          'Menú interativo con opcciones de busquedas y vista previa de postres, tipos de carnes, entradas, etc...'
+          'Mapa interactivo - Real time con la ubicación del restaurante',
         ],
         images: [
           'https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/486408621_716935614461818_6317470296975947153_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=YFGXb2GqqloQ7kNvgGyY0H3&_nc_oc=AdkSd5dMSbEmFjG8VCT5b4vlU8xjjxTR_k_j4Un7eH2RjmiZHKurqvnrFpP9PcHd-8I&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&oh=03_Q7cD1wHUjW6Kj7epXCm5FXHUanhIH1PbyOiFD9B99wV3OQq7NA&oe=681374E3',
