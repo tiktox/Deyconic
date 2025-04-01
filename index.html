@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="styles1.css">
  <script src="script1.js" defer></script>
     <meta charset="UTF-8">
- <meta name="google-site-verification" content="p8H6581oS9OPAdDW2TxvmLxPZjRGlwKER46j2eATgQc" />
     <meta name="description" content="Deyconic es una institución que ofrece servicios digitales y fisicos a empresas que no tienen presencia en redes sociales o no cuentan con una plataforma profesional que los posicione en los motores de busqueda, nuestro objetivo es lograr el impulso digital para pequeñas y grandes empresas y mejorar la interacción empresarial con el cliente. Nuestro equipo de expertos fusiona creatividad y tecnología para potenciar el crecimiento de tu negocio, ya sea en el ámbito digital o físico, alcanzando el máximo nivel de desarrollo empresarial para tu organización.">
     <meta name="keywords" content="empresas que desarrollan páginas web, empresa de diseño web, gestión empresarial, crear páginas web, deyconic">
     <meta name="author" content="Deyconic">
@@ -177,7 +176,7 @@
           </div>
         </div>
         <div class="portfolio-item" data-category="gestion" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://scontent.fsti4-2.fna.fbcdn.net/v/t1.15752-9/486637443_627049213552040_1617877893249454248_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=p4AOYGvcYooQ7kNvgGXz9Re&_nc_oc=AdkoJUigRRqJWo6JM8LfbOXwL-CPYdOnWA4UttwUT-3icOvZ_nWOkh-JTkAjwz6cqxg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&oh=03_Q7cD1wFqS9uWFwToH7Zg1hG5voPUmvrYewtF2EBSwypxknOafA&oe=680A3C81">
+          <img src="https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/486408621_716935614461818_6317470296975947153_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=YFGXb2GqqloQ7kNvgGyY0H3&_nc_oc=AdkSd5dMSbEmFjG8VCT5b4vlU8xjjxTR_k_j4Un7eH2RjmiZHKurqvnrFpP9PcHd-8I&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&oh=03_Q7cD1wHUjW6Kj7epXCm5FXHUanhIH1PbyOiFD9B99wV3OQq7NA&oe=681374E3">
           <div class="portfolio-overlay">
             <h3>Gestion de proyectos</h3>
             <p>Automatización de procesos - Sector hotelero</p>
@@ -331,7 +330,7 @@
               <div class="social-links">
                   <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                   <a href="https://www.linkedin.com/in/dominican-hubvix-178372355/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                  <a href="https://www.instagram.com/deyconic?igsh=MW10cnE5cWJxOHBhbg==" class="social-link"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/hubvix?igsh=bG4wd2pzYjdicW52&utm_source=qr" class="social-link"><i class="fab fa-instagram"></i></a>
               </div>
           </div>
           <div class="footer-section">
@@ -392,7 +391,6 @@
                     <br>  
                   </p>
                   <p>Nos esforzamos por crear un impacto positivo en la sociedad mediante la generación de empleo, el apoyo al emprendimiento y la democratización del acceso a soluciones tecnológicas que permitan a individuos y empresas alcanzar su máximo potencial.</p>
-                  
               </div>
           </div>
       </div>
@@ -672,43 +670,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Evaluación Empresarial</title> 
+    <title>Sistema de Evaluación Empresarial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .floating-element {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .floating-element.expanded {
+            width: 280px;
+            height: 50px;
+            border-radius: 12px;
+            padding-left: 100px;
+        }
+        
+        .logo-2 {
+            border-radius: 50px;
+            position: absolute;
+            left: 5px;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-element.expanded .logo-2 {
+            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            margin-right: 100px;
+        }
+        
+        .notification-text {
+            color: white;
+            font-weight: bold;
+            display: none;
+            transition: opacity 0.3s ease;
+            flex: 1;
+        }
+        
+        .floating-element.expanded .notification-text {
+            display: block;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
 </head>
- <div class="floating-element">
+<body>
+    <div class="floating-element">
         <div class="content-wrapper">
             <img src="https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/476719592_672740238528148_8347958082778358448_n.png?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=RxQKVX_n3XIQ7kNvgHqusDl&_nc_oc=AdlaEwFN3JnlfRDbul5I4DfNvkvZWsNL2fMH5SL6-ihWeQq9aDy_eDiGNA2O5rgBQZpkDZiI_fv3kIBbLpDphAY_&_nc_ad=z-m&_nc_cid=1468&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&oh=03_Q7cD1wE_-T3Q-OHXEOyP_Mw_XOawl8MUUiCq7jzE6Y6iRqKveA&oe=680F79F9" alt="Logo-2" class="logo-2">
             <div class="notification-text">Próxima actualización (Semana santa)</div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingElement = document.querySelector('.floating-element');
+            
+            // Función para alternar entre estados
+            function toggleElement() {
+                floatingElement.classList.toggle('expanded');
+            }
+            
+            // Ciclo de expansión y contracción cada 5 segundos
+            function startCycle() {
+                setTimeout(function() {
+                    // Expande
+                    floatingElement.classList.add('expanded');
+                    
+                    setTimeout(function() {
+                        // Contrae
+                        floatingElement.classList.remove('expanded');
+                        
+                        // Reinicia el ciclo
+                        startCycle();
+                    }, 5000);
+                }, 5000);
+            }
+            
+            // Inicia el ciclo
+            startCycle();
+            
+            // Permite toggle manual al hacer clic
+            floatingElement.addEventListener('click', toggleElement);
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Deyconic" "deyconic" "DEYCONIC",
+      "name": "Deyconic",
       "url": "https://deyconic.vercel.app/",
-      "image": "https://scontent.fhex5-2.fna.fbcdn.net/v/t1.15752-9/482169794_889373686528908_3990815244860795325_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=pfyFlYadTWkQ7kNvgGMOWao&_nc_oc=Adg4QyURi-L8KPZ37qG0ulpQT7I30adsoJOtcWF6LD51Ie4C8wHT0LBXZzl854zaOVpl8p0u6G4tEmXMR5ieLD1l&_nc_ad=z-m&_nc_cid=1468&_nc_zt=23&_nc_ht=scontent.fhex5-2.fna&oh=03_Q7cD1wFrl0-r6THSgCpXsAxxCbye-RSj5rB3eLfceKnv5cvnLA&oe=67F6D578",
-      "description": "Empresa líder en desarrollo web y gestión empresarial.",
+      "image": "https://deyconic.vercel.app/img/logo-deyconic.jpg",
+      "description": "Deyconic ofrece servicios de desarrollo web, transformación digital y gestión empresarial en República Dominicana.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "av las colinas",
-        "addressLocality": "Santiago de los caballeros",
-        "addressCountry": "Republica dominicana", "republica dominicana", "Dominican Republic" "Dominican Republic" "Dominican Republic",
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Deyconic", "DEYCONIC", "deyconic", "dEYCONIC",
-      "url": "https://deyconic.vercel.app/",
-      "image": "https://tudominio.com/logo.png",
-      "description": "Empresa líder en desarrollo web y gestión empresarial.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Calle Principal #123",
-        "addressLocality": "Santiago de los caballeros",
+        "streetAddress": "Av. Las Colinas",
+        "addressLocality": "Santiago de los Caballeros",
         "addressCountry": "DO"
-      }
+      },
+      "telephone": "+1-829-931-5704", /* Añade un número real */
+      "openingHours": "Mo-Fr 08:00-6:00"
     }
     </script>
