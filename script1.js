@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       'transformacion-digital': {
         title: 'Transformación Digital',
-        subtitle: 'Digitalización empresarial - Mr Grilled',
+        subtitle: 'Automatización de procesos para cadena de restaurante',
         category: 'Digitalización',
         client: 'restaurante Mr Grilled',
         date: '2025',
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         features: [
           'Membresia - Deyconic vix',
           'Sistema de reservas automatizado',
-          'Menú interativo con opcciones de busquedas y vista previa de postres, tipos de carnes, entradas, etc...'
+          'Menú interativo con opcciones de busquedas y vista previa de postres, tipos de carnes, entradas, etc...',
           'Mapa interactivo - Real time con la ubicación del restaurante',
         ],
         images: [
