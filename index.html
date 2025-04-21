@@ -85,7 +85,7 @@
         <section class="stats">
             <div class="stats-grid">
                 <div class="stat-item" data-aos="fade-up">
-                    <div class="stat-number" data-count="101">0</div>
+                    <div class="stat-number" data-count="103">0</div>
                     <p>Proyectos Completados</p>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
@@ -153,6 +153,7 @@
             </div>
         </div>
     </section>
+    
     <section class="portfolio" id="portafolio">
       <div class="section-title" data-aos="fade-up">
         <h2>Nuestro Portafolio</h2>
@@ -260,11 +261,134 @@
         </div>
       </div>
     </div>
-    <section class="updates" id="actualizaciones">
+
+
+    <style>
+        /* Estilos para la sección de noticias */
+.news {
+    padding: 80px 0;
+    background-color: #ACD8F5;
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.featured-article {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.featured-video {
+    flex: 1 1 50%;
+    min-width: 300px;
+    position: relative;
+}
+
+.featured-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #ff0000;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.featured-content {
+    flex: 1 1 50%;
+    min-width: 300px;
+    padding: 40px;
+}
+
+.article-category {
+    display: inline-block;
+    color: #ff3a3a;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.article-meta {
+    color: #777;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.article-meta i {
+    margin-right: 5px;
+}
+
+.article-excerpt {
+    margin: 20px 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .featured-article {
+        flex-direction: column;
+    }
+    
+    .featured-video, .featured-content {
+        flex: 1 1 100%;
+    }
+    
+    .featured-content {
+        padding: 25px;
+    }
+}
+</style>
+
+<section class="news" id="noticias">
+    <div class="section-title">
+        <h2>Noticias y Artículos</h2>
+        <p>Mantente informado con las últimas tendencias en innovación digital y gestión empresarial</p>
+    </div>
+    
+    <div class="news-container">
+        <!-- Artículo destacado -->
+        <div class="featured-article">
+            <div class="featured-video">
+                <video autoplay loop muted playsinline>
+                    <source src="https://videos.pexels.com/video-files/18069166/18069166-sd_640_360_24fps.mp4" type="video/mp4">
+                    Tu navegador no soporta videos HTML5.
+                </video>
+                <div class="featured-tag">Deyconic news</div>
+            </div>
+            <div class="featured-content">
+                <span class="article-category">Transformación Digital</span>
+                <h3>Tendencias digitales que marcarán el 2025</h3>
+                <p class="article-meta"><i class="fas fa-calendar-alt"></i> 15 Marzo 2025 | <i class="fas fa-clock"></i> 5 min lectura</p>
+                <p class="article-excerpt">En 2025, veremos una adopción masiva de IA generativa (como ChatGPT, Gemini, Claude, etc.) integrada directamente en tiendas en línea pa...</p>
+                <a href="#" class="cta-button-01">Leer artículo completo</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section class="updates" id="actualizaciones">
+
         <div class="section-title" data-aos="fade-up">
             <h2>Actualizaciones</h2>
             <p>Mantente al día con las últimas novedades y avances de deyconic</p>
         </div>
+
         <!-- Carrusel con actualizaciones destacadas -->
         <div class="featured-updates" data-aos="fade-up">
             <div class="carousel-container">
@@ -673,77 +797,80 @@
     <title>Sistema de Evaluación Empresarial</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-        }
-        
-        .floating-element {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #ff0000;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            overflow: hidden;
-        }
-        
-        .floating-element.expanded {
-            width: 280px;
-            height: 50px;
-            border-radius: 12px;
-            padding-left: 100px;
-        }
-        
-        .logo-2 {
-            border-radius: 50px;
-            position: absolute;
-            left: 5px;
-            width: 40px;
-            height: 40px;
-            transition: all 0.3s ease;
-        }
-        
-        .floating-element.expanded .logo-2 {
-            border-radius: 12px;
-            width: 40px;
-            height: 40px;
-            margin-right: 100px;
-        }
-        
-        .notification-text {
-            color: white;
-            font-weight: bold;
-            display: none;
-            transition: opacity 0.3s ease;
-            flex: 1;
-        }
-        
-        .floating-element.expanded .notification-text {
-            display: block;
-        }
-        
-        .content-wrapper {
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.floating-element {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.floating-element.expanded {
+    width: 280px;
+    height: 50px;
+    border-radius: 12px;
+}
+
+.logo-2 {
+    border-radius: 50px;
+    position: absolute;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.floating-element.expanded .logo-2 {
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+}
+
+.notification-text {
+    color: white;
+    font-weight: bold;
+    display: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.floating-element.expanded .notification-text {
+    display: block;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-left: 30px;
+}
     </style>
 </head>
 <body>
     <div class="floating-element">
         <div class="content-wrapper">
             <img src="https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/476719592_672740238528148_8347958082778358448_n.png?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=RxQKVX_n3XIQ7kNvgHqusDl&_nc_oc=AdlaEwFN3JnlfRDbul5I4DfNvkvZWsNL2fMH5SL6-ihWeQq9aDy_eDiGNA2O5rgBQZpkDZiI_fv3kIBbLpDphAY_&_nc_ad=z-m&_nc_cid=1468&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&oh=03_Q7cD1wE_-T3Q-OHXEOyP_Mw_XOawl8MUUiCq7jzE6Y6iRqKveA&oe=680F79F9" alt="Logo-2" class="logo-2">
-            <div class="notification-text">Actualizaciones disponibles!</div>
+            <div class="notification-text">Actualizaciones disponibles</div>
         </div>
     </div>
 
