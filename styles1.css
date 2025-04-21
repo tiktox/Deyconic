@@ -522,7 +522,57 @@ animation: fadeIn 0.6s ease forwards;
     .mission-text {
         padding-left: 2rem;
     }
+    /* Sobre Nosotros - Versión móvil */
+@media (max-width: 768px) {
+    .about {
+        padding: 3rem 4%;
+    }
     
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-text {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .about-image {
+        order: 1;
+        margin-bottom: 1rem;
+    }
+
+    /* Nuestra Misión - Versión móvil */
+    .mission {
+        padding: 3rem 4%;
+    }
+    
+    .mission-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .mission-image {
+        margin-bottom: 1rem;
+    }
+    
+    .mission-text {
+        padding-left: 0;
+        order: 2;
+    }
+}
+
+/* Para dispositivos aún más pequeños */
+@media (max-width: 480px) {
+    .about, .mission {
+        padding: 2rem 3%;
+    }
+    
+    .about-content, .mission-content {
+        gap: 1.5rem;
+    }
+}
                 /* Servicios */
                 .services {
                     background: #ACD8F5;
@@ -614,7 +664,7 @@ animation: fadeIn 0.6s ease forwards;
        /* Portafolio */
        .portfolio {
         padding: 5rem 5%;
-        background: #f9f9f9;
+        background: #ACD8F5;
     }
 
     .dark-mode .portfolio {
@@ -638,7 +688,7 @@ animation: fadeIn 0.6s ease forwards;
     }
 
     .filter-btn.active {
-        background: var(--primary-color);
+        background: #000000;
         color: white;
     }
 
@@ -652,7 +702,7 @@ animation: fadeIn 0.6s ease forwards;
 
     .portfolio-item {
         position: relative;
-        border-radius: 15px;
+        border-radius: 20px;
         overflow: hidden;
         cursor: pointer;
     }
@@ -692,7 +742,7 @@ animation: fadeIn 0.6s ease forwards;
     /* CTA Section */
     .cta-section {
       padding: 5rem 5%;
-      background: var(--gradient);
+      background: #00ff88;
       color: white;
       text-align: center;
     }
@@ -1436,7 +1486,7 @@ font-size: 0.9rem;
         }
 
         .cta-button {
-            background-color: #000;
+            background-color: #000000;
             color: white;
             border: none;
             padding: 12px 24px;
@@ -1454,7 +1504,7 @@ font-size: 0.9rem;
             transform: translateY(-50%);
             width: 18px;
             height: 150px;
-            background-color: #00000075;
+            background-color: #00000093;
             border-radius: 15px;
             display: flex;
             flex-direction: column;
@@ -2131,7 +2181,7 @@ font-size: 0.9rem;
         position: absolute;
         width: 80px;
         height: 3px;
-        background-color: #3a86ff;
+        background-color: #000000;
         bottom: -10px;
         left: 50%;
         transform: translateX(-50%);
