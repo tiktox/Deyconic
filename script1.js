@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'Integración con sistemas de facturación electrónica'
         ],
         images: [
-          'https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/482649829_3067503626750482_3554400521044362842_n.png?_nc_cat=108&ccb=1-7&_nc_sid=0024fc&_nc_ohc=kUZXV2xmjEYQ7kNvgEMhvcc&_nc_oc=AdlMtky3NXyI9g2vkaJOphHuYj-F-Ylc9aHaBhCdYvZ_RhydkMq-EY7Ll6X4cxf4WJQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&oh=03_Q7cD1wHnWH1tI4oSdXcOlF5mbEIGhM39nn1WaxbfviD-ax5c-A&oe=680A198D',
-          'https://scontent.fsti4-2.fna.fbcdn.net/v/t1.15752-9/482175551_654371570400481_8350452813972014943_n.png?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=R816XYhuPhUQ7kNvgFkjAcY&_nc_oc=AdkHYNcWHXOVANawXMEUALYWYTheTWN3NEawX73ShjZcUq701GUagpZiJTkncMA5QwM&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&oh=03_Q7cD1wHJDKKnhkhrthmF0WLlRfvXbk3pCg4ujSeSJkRjHoyMgg&oe=680A285F',
-          'https://scontent.fsti4-2.fna.fbcdn.net/v/t1.15752-9/482266893_1006549318026295_2613513271942866677_n.png?_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_ohc=WBHV6Hc_HHMQ7kNvgFouyHO&_nc_oc=AdmzQBEOaJ_jyfM7g3t_U9_dxDoDX_ms17WucBfbjUt1koYraiwDgYVntcP5kyYYpF0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&oh=03_Q7cD1wH8A0C2GSRCgBKPOxpWT2Yp24uIb0U6rc7v_GEohcJM4g&oe=680A253E',
+          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%201.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%202.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%203.jpg?raw=true',
         ],
         similarProductLink: 'https://clinica-dental01.web.app/' // Link añadido aquí
       },
@@ -36,29 +36,29 @@ document.addEventListener('DOMContentLoaded', function() {
           'Mapa interactivo - Real time con la ubicación del restaurante',
         ],
         images: [
-          'https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/486408621_716935614461818_6317470296975947153_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_ohc=YFGXb2GqqloQ7kNvgGyY0H3&_nc_oc=AdkSd5dMSbEmFjG8VCT5b4vlU8xjjxTR_k_j4Un7eH2RjmiZHKurqvnrFpP9PcHd-8I&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&oh=03_Q7cD1wHUjW6Kj7epXCm5FXHUanhIH1PbyOiFD9B99wV3OQq7NA&oe=681374E3',
-          'https://scontent.fsti4-2.fna.fbcdn.net/v/t1.15752-9/486479175_995830615493789_1766466204810199071_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_ohc=n3lRt717UAcQ7kNvgGBHYP_&_nc_oc=AdmllDoxVz83Z4mkMIxTg0SnR-TP9yZJC2lPsNqVxi3RWH9E1wWdG-xUZuYeN5sle40&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&oh=03_Q7cD1wHN2V5aGqLYMpKlFxq2UScMxAdImVXJhPs11_MX3NCX7g&oe=68134C53',
-          'https://scontent.fsti4-2.fna.fbcdn.net/v/t1.15752-9/486616716_1380396246616176_3142926640723836219_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=0024fc&_nc_ohc=fO10-ycgL68Q7kNvgHwNv6i&_nc_oc=AdktuUOx9gHiTLVb7PQ7q4B6RAfe2VXtyzP-2fbvweRRRoOsbTGZFZl7U8yvOFrangE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&oh=03_Q7cD1wHpSyYjERkQwQzmfw6O5-JzU1Tmw0--GXbJIRwdpqljug&oe=681368D9'
+          'https://github.com/tiktox/livenrun/blob/main/mr%20grilled%201.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/mr%20grilled%202.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/mr%20grilled%203.jpg?raw=true'
         ],
         similarProductLink: 'https://tiktox.github.io/msgrilled/' // Link añadido aquí
       },
       'plataforma-innovacion': {
         title: 'Plataforma de Innovación',
-        subtitle: 'dealer',
+        subtitle: 'Deyconic store',
         category: 'Innovación',
-        client: 'chicago motors',
+        client: 'Deyconic',
         date: '2025',
-        description: 'Creamos un marketplace de automoviles especializado que conecta a vendedores y compradores de todas partes del mundo para una compra/venta exitosa. La plataforma facilita el networking estratégico, la visibilidad de automoviles disponibles para el acceso al financiamiento para emprendedores tecnológicos en republica dominicana.',
+        description: 'Creamos un marketplace para una tienda personalizada que conecta a vendedores y compradores de todas partes del mundo para una compra/venta exitosa. La plataforma facilita el networking estratégico, la visibilidad de automoviles disponibles para el acceso al financiamiento para emprendedores tecnológicos en republica dominicana.',
         features: [
-          'vehiculos totalmente nuevos',
-          'financiamiento al mas bajo costo del pais',
-          'Seguros de automoviles disponibles con descuentos',
-          'Garantia de calidad para los vehiculos',
+          'Todo tpo de marcas',
+          'Ofertas exclusivas',
+          'Novedades exclusivas',
+          'Ventas al por mayor',
         ],
         images: [
-          'https://scontent.fsti4-1.fna.fbcdn.net/v/t1.15752-9/480054186_1027611749412093_4717539874143873127_n.png?_nc_cat=100&ccb=1-7&_nc_sid=0024fc&_nc_ohc=-iFvErgX_xEQ7kNvgFqCdU-&_nc_oc=AdnAplhWYITn5qdXsl7nbAqYOpbHbewAQNtZMyQmbGZPmy_j8_ZZ6aGI1cOdGVnFw2w&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&oh=03_Q7cD1wEiG-u2RL3t6erIYsfLU7eZ6v6eYmhp1oiF-hGbdTeaCw&oe=680A3436',
-          'https://scontent.fsti4-2.fna.fbcdn.net/v/t1.15752-9/480073662_927555899580789_1301874081901012094_n.png?_nc_cat=101&ccb=1-7&_nc_sid=0024fc&_nc_ohc=qnIrBnZ2uAAQ7kNvgFXbF1l&_nc_oc=Adlp3lGR0xILEytXqjUXPLls-DO7zbVbE2P0s-v2FLT42pIhp0M-KMbeTiXjBWpGDKQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&oh=03_Q7cD1wGZBbRz3p5KV9typVEJicOc5U8Uc7-KVUB1-YaBElX0tA&oe=680A4006',
-          'https://scontent.fsti4-2.fna.fbcdn.net/v/t1.15752-9/476200484_1164371728689633_822713249362344919_n.png?_nc_cat=107&ccb=1-7&_nc_sid=0024fc&_nc_ohc=kX5MmPPUGw8Q7kNvgFrAaUT&_nc_oc=Adlh58V3VzM-vFJNJWK0UBCnEfJlm8MFBRaU1MeiiLubX_R-tY1lGbfazIapNZpWU3s&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&oh=03_Q7cD1wGx-TrbotdYO485qomOfeYIqgqhzFCoIgTBTdejlCIj8w&oe=680A2F74'
+          'https://github.com/tiktox/livenrun/blob/main/deyconic%20store.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/deyconic%20store%202.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/deyconic%20store%203.jpg?raw=true'
         ],
         similarProductLink: 'https://pro-innova-rd.firebaseapp.com/' // Link añadido aquí
       },
