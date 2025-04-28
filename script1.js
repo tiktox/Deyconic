@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
           'https://github.com/tiktox/livenrun/blob/main/deyconic%20store%202.jpg?raw=true',
           'https://github.com/tiktox/livenrun/blob/main/deyconic%20store%203.jpg?raw=true'
         ],
-        similarProductLink: 'https://pro-innova-rd.firebaseapp.com/' // Link añadido aquí
+        similarProductLink: 'https://tiktox.github.io/xmchat/' // Link añadido aquí
       },
     };
     
