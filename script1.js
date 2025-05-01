@@ -1,4 +1,5 @@
 
+
 document.addEventListener('DOMContentLoaded', function() {
     // Datos de ejemplo para proyectos (puedes reemplazar con tus datos reales)
     const projectsData = {
@@ -61,6 +62,26 @@ document.addEventListener('DOMContentLoaded', function() {
           'https://github.com/tiktox/livenrun/blob/main/deyconic%20store%203.jpg?raw=true'
         ],
         similarProductLink: 'https://tiktox.github.io/xmchat/' // Link añadido aquí
+      },
+      'plataforma-innovacion': {
+        title: 'Plataforma inmobiliaria',
+        subtitle: 'Whiteconic',
+        category: 'digitalizacion',
+        client: 'Deyconic',
+        date: '2025',
+        description: 'Desarrollamos esta plataforma con el objetivo de ofrecer los mejores servicios en las ventas, alquileres o rentas de apartamentos, casas o locales comerciales enfocandonos en brindar seguridad a nuestros clientes al momento de firmar un acuerdo de compra o renta con el propietario. ',
+        features: [
+          'Seguridad',
+          'Ofertas exclusivas',
+          'Precios competitivos',
+          'Asistencia online',
+        ],
+        images: [
+          'https://github.com/tiktox/livenrun/blob/main/whiteconic%201.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/whiteconic%202.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/whiteconic%203.jpg?raw=true'
+        ],
+        similarProductLink: 'https://whiteconic.web.app/' // Link añadido aquí
       },
     };
     
