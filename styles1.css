@@ -1315,7 +1315,7 @@ font-size: 0.9rem;
             .eye-button {
                 position: fixed;
                 bottom: px;
-                right: 14.1px;
+                right: 10px;
                 width: 40px;
                 height: 40px;
                 background-color: white;
@@ -2150,7 +2150,7 @@ font-size: 0.9rem;
       .chatbot01 {
         position: fixed;
         bottom: px;
-        right: 14.1px;
+        right: 10px;
         width: 40px;
         height: 40px;
         background-color: white;
