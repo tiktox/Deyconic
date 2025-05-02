@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'digitalizacion-clinica': {
         title: 'Digitalización Empresarial',
         subtitle: 'Desarrollo web - Sector salud',
-        category: 'Digitalizacin',
+        category: 'Digitalizacion',
         client: 'Ultra clinica dental',
         date: '2025',
         description: 'Implementamos una solución de digitalización completa para una importante clínica, optimizando la gestión de pacientes, historiales médicos y procesos administrativos mediante una plataforma web intuitiva que mejoró la eficiencia operativa en un 45%.',
@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'Integración con sistemas de facturación electrónica'
         ],
         images: [
-          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%201.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%202.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%203.jpg?raw=true',
+          'https://i.pinimg.com/736x/dd/0d/81/dd0d818c01acd58d6e3548f167b1cf9e.jpg',
+          'https://i.pinimg.com/736x/92/be/48/92be488e6dae372c6aa9e92936c43489.jpg',
+          'https://i.pinimg.com/736x/6d/3e/9e/6d3e9e767f562496f176293fe1719720.jpg',
         ],
         similarProductLink: 'https://clinica-dental01.web.app/' // Link añadido aquí
       },
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         similarProductLink: 'https://tiktox.github.io/msgrilled/' // Link añadido aquí
       },
-      'plataforma-innovacion': {
+      'digitalizacion-tienda': {
         title: 'Plataforma de Innovación',
         subtitle: 'Deyconic store',
         category: 'Innovación',
@@ -63,26 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         similarProductLink: 'https://tiktox.github.io/xmchat/' // Link añadido aquí
       },
-      'plataforma-innovacion': {
-        title: 'Plataforma inmobiliaria',
-        subtitle: 'Whiteconic',
-        category: 'digitalizacion',
-        client: 'Deyconic',
-        date: '2025',
-        description: 'Desarrollamos esta plataforma con el objetivo de ofrecer los mejores servicios en las ventas, alquileres o rentas de apartamentos, casas o locales comerciales enfocandonos en brindar seguridad a nuestros clientes al momento de firmar un acuerdo de compra o renta con el propietario. ',
-        features: [
-          'Seguridad',
-          'Ofertas exclusivas',
-          'Precios competitivos',
-          'Asistencia online',
-        ],
-        images: [
-          'https://github.com/tiktox/livenrun/blob/main/whiteconic%201.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/whiteconic%202.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/whiteconic%203.jpg?raw=true'
-        ],
-        similarProductLink: 'https://whiteconic.web.app/' // Link añadido aquí
-      },
     };
     
     // Función para abrir el modal
@@ -93,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
     project = projectsData['digitalizacion-clinica'];
   } else if (projectId.includes('Gestion')) {
     project = projectsData['transformacion-digital'];
-  } else if (projectId.includes('Plataforma')) {
-    project = projectsData['plataforma-innovacion'];
+  } else if (projectId.includes('Innovación')) {
+    project = projectsData['digitalizacion-tienda'];
   }
       
       // Actualizar el contenido del modal
