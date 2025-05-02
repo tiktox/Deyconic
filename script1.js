@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'Integración con sistemas de facturación electrónica'
         ],
         images: [
-          'https://i.pinimg.com/736x/dd/0d/81/dd0d818c01acd58d6e3548f167b1cf9e.jpg',
-          'https://i.pinimg.com/736x/92/be/48/92be488e6dae372c6aa9e92936c43489.jpg',
-          'https://i.pinimg.com/736x/6d/3e/9e/6d3e9e767f562496f176293fe1719720.jpg',
+          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%201.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%202.jpg?raw=true',
+          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%203.jpg?raw=true',
         ],
         similarProductLink: 'https://clinica-dental01.web.app/' // Link añadido aquí
       },
