@@ -210,7 +210,7 @@ nav {
     width: 100%;
     height: 100%;
     background: #000000;
-    background-image: url('https://github.com/tiktox/Deyconic/blob/main/d9755a79347a0fe2df5b61b5fe1f2301.jpg?raw=true');
+    background-image: url('https://i.pinimg.com/736x/7b/d2/18/7bd218cb67a376d06d4685c4e3da2827.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -1496,87 +1496,141 @@ font-size: 0.9rem;
             margin-top: 20px;
         }
 
-        /* Botón flotante y barra de herramientas */
-        .floating-button {
-            position: fixed;
-            right: 05px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 18px;
-            height: 150px;
-            background-color: #00000093;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 10;
-        }
+    
+/* Botón flotante y barra de herramientas */
+.floating-button {
+    position: fixed;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 150px;
+    background-color: #00000093;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+}
 
-        .floating-button .toggle-icon {
-            color: white;
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
+@media (max-width: 768px) {
+    .floating-button {
+        width: 16px;
+        height: 120px;
+        right: 3px;
+    }
+}
 
-        .floating-toolbar {
-            position: fixed;
-            right: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.342);
-            border-radius: 10px;
-            padding: 15px;
-            display: none;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 99;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-            transform: translateY(-50%) translateX(20px);
-        }
+@media (max-width: 480px) {
+    .floating-button {
+        width: 14px;
+        height: 100px;
+    }
+}
 
-        .floating-toolbar.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(-50%) translateX(0);
-        }
+.floating-button .toggle-icon {
+    color: white;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
 
-        .toolbar-button {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #007bff;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.2s ease;
-        }
+@media (max-width: 480px) {
+    .floating-button .toggle-icon {
+        font-size: 10px;
+    }
+}
 
-        .toolbar-button:hover {
-            background-color: #0056b3;
-        }
+.floating-toolbar {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.342);
+    border-radius: 10px;
+    padding: 15px;
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(-50%) translateX(20px);
+}
 
-        .toolbar-button:nth-child(2) {
-            background-color: #28a745;
-        }
+@media (max-width: 768px) {
+    .floating-toolbar {
+        right: 30px;
+        padding: 12px;
+        gap: 12px;
+    }
+}
 
-        .toolbar-button:nth-child(2):hover {
-            background-color: #218838;
-        }
+@media (max-width: 480px) {
+    .floating-toolbar {
+        right: 25px;
+        padding: 10px;
+        gap: 10px;
+    }
+}
 
-        .toolbar-button:nth-child(3) {
-            background-color: #000000;
-        }
+.floating-toolbar.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
 
-        .toolbar-button:nth-child(3):hover {
-            background-color: #000000;
-        }
+.toolbar-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s ease;
+}
+
+@media (max-width: 768px) {
+    .toolbar-button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toolbar-button {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+.toolbar-button:hover {
+    background-color: #0056b3;
+}
+
+.toolbar-button:nth-child(2) {
+    background-color: #28a745;
+}
+
+.toolbar-button:nth-child(2):hover {
+    background-color: #218838;
+}
+
+.toolbar-button:nth-child(3) {
+    background-color: #000000;
+}
+
+.toolbar-button:nth-child(3):hover {
+    background-color: #000000;
+}
 
         /* Líneas de fondo */
         .background-lines {
