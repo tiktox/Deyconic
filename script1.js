@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'Integración con sistemas de facturación electrónica'
         ],
         images: [
-          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%201.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%202.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/clinica%20dental%203.jpg?raw=true',
+          'https://ik.imagekit.io/ajkl5a98u/clinica%20dental%201.jpg?updatedAt=1746197438549',
+          'https://ik.imagekit.io/ajkl5a98u/clinica%20dental%202.jpg?updatedAt=1746197442037',
+          'https://ik.imagekit.io/ajkl5a98u/clinica%20dental%203.jpg?updatedAt=1746197442723',
         ],
         similarProductLink: 'https://clinica-dental01.web.app/' // Link añadido aquí
       },
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'Mapa interactivo - Real time con la ubicación del restaurante',
         ],
         images: [
-          'https://github.com/tiktox/livenrun/blob/main/mr%20grilled%201.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/mr%20grilled%202.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/mr%20grilled%203.jpg?raw=true'
+          'https://ik.imagekit.io/ajkl5a98u/mr%20grilled%201.jpg?updatedAt=1746197443058',
+          'https://ik.imagekit.io/ajkl5a98u/mr%20grilled%202.jpg?updatedAt=1746197442745',
+          'https://ik.imagekit.io/ajkl5a98u/mr%20grilled%203.jpg?updatedAt=1746197443843'
         ],
         similarProductLink: 'https://tiktox.github.io/msgrilled/' // Link añadido aquí
       },
@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
           'Ventas al por mayor',
         ],
         images: [
-          'https://github.com/tiktox/livenrun/blob/main/deyconic%20store.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/deyconic%20store%202.jpg?raw=true',
-          'https://github.com/tiktox/livenrun/blob/main/deyconic%20store%203.jpg?raw=true'
+          'https://ik.imagekit.io/ajkl5a98u/deyconic%20store.jpg?updatedAt=1746197440975',
+          'https://ik.imagekit.io/ajkl5a98u/deyconic%20store%202.jpg?updatedAt=1746197440948',
+          'https://ik.imagekit.io/ajkl5a98u/deyconic%20store%203.jpg?updatedAt=1746197440581'
         ],
         similarProductLink: 'https://tiktox.github.io/xmchat/' // Link añadido aquí
       },
