@@ -1314,8 +1314,8 @@ font-size: 0.9rem;
             /* Botón Ojo Flotante */
             .eye-button {
                 position: fixed;
-                bottom: px;
-                right: 15px;
+                bottom: auto;
+                right: auto;
                 width: 40px;
                 height: 40px;
                 background-color: white;
@@ -2149,8 +2149,8 @@ font-size: 0.9rem;
       /* Estilos para el botón */
       .chatbot01 {
         position: fixed;
-        bottom: px;
-        right: 15px;
+        bottom: auto;
+        right: auto;
         width: 40px;
         height: 40px;
         background-color: white;
