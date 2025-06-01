@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -74,18 +73,17 @@ export default function PortfolioSection() {
     ? portfolioData
     : portfolioData.filter(item => item.category.toLowerCase() === activeFilter.toLowerCase());
 
-  const handleItemClick = (item: PortfolioItem) => {
+  const handleItemClick = useCallback((item: PortfolioItem) => {
     setSelectedItem(item);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
-    // Delay setting selectedItem to null to allow exit animation to complete
     setTimeout(() => {
       setSelectedItem(null);
-    }, 300); 
-  };
+    }, 300);
+  }, []);
 
   return (
     <section id="portafolio" className="py-20 bg-secondary">
@@ -94,7 +92,7 @@ export default function PortfolioSection() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-foreground tracking-tight mb-4">
@@ -109,7 +107,7 @@ export default function PortfolioSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           className="flex justify-center flex-wrap gap-2 sm:gap-4 mb-12"
         >
           {filters.map(filter => (
@@ -129,7 +127,7 @@ export default function PortfolioSection() {
           layout 
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -137,7 +135,13 @@ export default function PortfolioSection() {
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: -50 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20, delay: index * 0.05 }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 260, 
+                  damping: 20, 
+                  delay: index * 0.05,
+                  layout: { duration: 0.3 }
+                }}
                 className="cursor-pointer"
               >
                 <Card 
@@ -150,17 +154,18 @@ export default function PortfolioSection() {
                     <Image
                       src={item.mainImage}
                       alt={item.title}
-                      layout="fill"
-                      objectFit="cover"
-                      className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                      data-ai-hint={item.aiHint || "project image"}
+                      fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      quality={75}
+                      className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover"
+                      data-ai-hint={item.aiHint || "project image"}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <Eye className="h-12 w-12 text-white/90 transform group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                     <div className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">
-                        {item.category}
+                    <div className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">
+                      {item.category}
                     </div>
                   </div>
                   <CardContent className="p-5 flex-grow flex flex-col bg-background">
@@ -168,13 +173,13 @@ export default function PortfolioSection() {
                       <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
                       <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3 mb-3">{item.description}</p>
                     </div>
-                     <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="mt-auto self-start group/button hover:bg-primary hover:text-primary-foreground border-primary text-primary w-full sm:w-auto justify-center"
-                        onClick={(e) => { e.stopPropagation(); handleItemClick(item); }} 
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="mt-auto self-start group/button hover:bg-primary hover:text-primary-foreground border-primary text-primary w-full sm:w-auto justify-center"
+                      onClick={(e) => { e.stopPropagation(); handleItemClick(item); }} 
                     >
-                        Ver detalles <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
+                      Ver detalles <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
                     </Button>
                   </CardContent>
                 </Card>
