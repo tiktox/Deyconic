@@ -58,7 +58,11 @@ export default function ServiceRequestFAB() {
         size="lg"
       >
         <MessageSquarePlus className="h-6 w-6 mr-2" />
+<<<<<<< HEAD
         <span className="hidden sm:inline">Solicitar Servicio</span>
+=======
+        Solicitar Servicio
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
       </Button>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>

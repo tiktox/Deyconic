@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -51,6 +55,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
+<<<<<<< HEAD
           <Button 
             size="lg" 
             className="text-lg px-4 sm:px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow group bg-primary hover:bg-primary/90 text-primary-foreground" 
@@ -58,6 +63,11 @@ export default function HeroSection() {
           >
             <span className="hidden sm:inline">Evalúa tu Empresa</span>
             <ArrowRight className="h-5 w-5 sm:ml-2 group-hover:translate-x-1 transition-transform" />
+=======
+          <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow group bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => setIsModalOpen(true)}>
+            Evalúa tu Empresa
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
           </Button>
         </motion.div>
       </div>

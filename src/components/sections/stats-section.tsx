@@ -1,5 +1,6 @@
 "use client";
 
+<<<<<<< HEAD
 import dynamic from 'next/dynamic';
 import { Briefcase, CheckCircle, Building, Activity } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,6 +11,12 @@ const AnimatedCounter = dynamic(() => import("@/components/shared/animated-count
   loading: ({ count }) => <span className="text-5xl font-bold text-primary mb-2">{count}</span>
 });
 
+=======
+import AnimatedCounter from "@/components/shared/animated-counter";
+import { Briefcase, CheckCircle, Building, Activity } from "lucide-react";
+import { motion } from "framer-motion";
+
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
 const statsData = [
   { count: 103, label: "Proyectos Completados", icon: <Briefcase className="h-10 w-10 text-primary" /> },
   { count: 41, label: "Optimizaciones de Servicios", icon: <CheckCircle className="h-10 w-10 text-primary" /> },
@@ -17,6 +24,7 @@ const statsData = [
   { count: 13, label: "Proyectos en Curso", icon: <Activity className="h-10 w-10 text-primary" /> },
 ];
 
+<<<<<<< HEAD
 // Simplified animation variants
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -28,6 +36,19 @@ const cardVariants = {
       ease: "easeOut"
     }
   }
+=======
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  })
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
 };
 
 export default function StatsSection() {
@@ -38,11 +59,19 @@ export default function StatsSection() {
           {statsData.map((stat, index) => (
             <motion.div
               key={index}
+<<<<<<< HEAD
+=======
+              custom={index}
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
+<<<<<<< HEAD
               className="bg-background p-8 rounded-xl shadow-lg text-center flex flex-col items-center transform hover:scale-102 transition-transform duration-300"
+=======
+              className="bg-background p-8 rounded-xl shadow-lg text-center flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
             >
               <div className="mb-4">{stat.icon}</div>
               <AnimatedCounter to={stat.count} className="text-5xl font-bold text-primary mb-2" />

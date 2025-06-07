@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import Header from "@/components/layout/header";
@@ -47,12 +48,27 @@ const ErrorFallback = ({ error }: { error: Error }) => (
   </div>
 );
 
+=======
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
+import HeroSection from "@/components/sections/hero-section";
+import StatsSection from "@/components/sections/stats-section";
+import AboutSection from "@/components/sections/about-section";
+import MissionSection from "@/components/sections/mission-section";
+import ServicesSection from "@/components/sections/services-section";
+import PortfolioSection from "@/components/sections/portfolio-section";
+import NewsSection from "@/components/sections/news-section";
+import UpdatesSection from "@/components/sections/updates-section";
+import Seo from "@/components/Seo";
+
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Seo />
       <Header />
       <main className="flex-grow">
+<<<<<<< HEAD
         <Suspense fallback={<div className="h-screen bg-gray-100 animate-pulse" />}>
           <HeroSection />
         </Suspense>
@@ -84,6 +100,16 @@ export default function Home() {
         <Suspense fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
           <UpdatesSection />
         </Suspense>
+=======
+        <HeroSection />
+        <StatsSection />
+        <AboutSection />
+        <MissionSection />
+        <ServicesSection />
+        <PortfolioSection />
+        <NewsSection />
+        <UpdatesSection />
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
       </main>
       <Footer />
     </div>

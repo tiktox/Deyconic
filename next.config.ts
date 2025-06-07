@@ -3,12 +3,19 @@ import type {NextConfig} from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
   typescript: {
+<<<<<<< HEAD
     // Solo ignorar errores de tipos en desarrollo
     ignoreBuildErrors: process.env.NODE_ENV === 'development',
   },
   eslint: {
     // Solo ignorar errores de ESLint en desarrollo
     ignoreDuringBuilds: process.env.NODE_ENV === 'development',
+=======
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
   },
   images: {
     remotePatterns: [
@@ -25,6 +32,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ],
+<<<<<<< HEAD
     // Optimización de imágenes
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -77,6 +85,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
+=======
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
   },
 };
 

@@ -3,7 +3,11 @@
 
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+<<<<<<< HEAD
 import { useEffect, useState, memo } from 'react';
+=======
+import { useEffect, useState } from 'react';
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
 
 interface DeyconicLogoProps {
   className?: string;
@@ -13,6 +17,7 @@ interface DeyconicLogoProps {
   height?: number;
 }
 
+<<<<<<< HEAD
 const DeyconicLogo = memo(function DeyconicLogo({ 
   className, 
   lightLogoUrl, 
@@ -20,6 +25,9 @@ const DeyconicLogo = memo(function DeyconicLogo({
   width = 32, 
   height = 32 
 }: DeyconicLogoProps) {
+=======
+export function DeyconicLogo({ className, lightLogoUrl, darkLogoUrl, width = 32, height = 32 }: DeyconicLogoProps) {
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -43,6 +51,7 @@ const DeyconicLogo = memo(function DeyconicLogo({
       height={height}
       className={className}
       priority
+<<<<<<< HEAD
       loading="eager"
       quality={90}
       sizes={`${width}px`}
@@ -55,3 +64,8 @@ const DeyconicLogo = memo(function DeyconicLogo({
 });
 
 export { DeyconicLogo };
+=======
+    />
+  );
+}
+>>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
