@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 "use client";
 
 import { useState, useCallback } from "react";
@@ -8,6 +9,11 @@ import { useState, useCallback } from "react";
 
 import { useState } from "react";
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+"use client";
+
+import { useState, useCallback } from "react";
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -81,6 +87,7 @@ export default function PortfolioSection() {
     : portfolioData.filter(item => item.category.toLowerCase() === activeFilter.toLowerCase());
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const handleItemClick = useCallback((item: PortfolioItem) => {
     setSelectedItem(item);
     setIsModalOpen(true);
@@ -94,18 +101,25 @@ export default function PortfolioSection() {
   }, []);
 =======
   const handleItemClick = (item: PortfolioItem) => {
+=======
+  const handleItemClick = useCallback((item: PortfolioItem) => {
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
     setSelectedItem(item);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
-    // Delay setting selectedItem to null to allow exit animation to complete
     setTimeout(() => {
       setSelectedItem(null);
+<<<<<<< HEAD
     }, 300); 
   };
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+    }, 300);
+  }, []);
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 
   return (
     <section id="portafolio" className="py-20 bg-secondary">
@@ -115,10 +129,14 @@ export default function PortfolioSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
 <<<<<<< HEAD
+<<<<<<< HEAD
           viewport={{ once: true, margin: "-100px" }}
 =======
           viewport={{ once: true }}
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+          viewport={{ once: true, margin: "-100px" }}
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-foreground tracking-tight mb-4">
@@ -134,10 +152,14 @@ export default function PortfolioSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
 <<<<<<< HEAD
+<<<<<<< HEAD
           viewport={{ once: true, margin: "-100px" }}
 =======
           viewport={{ once: true }}
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+          viewport={{ once: true, margin: "-100px" }}
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
           className="flex justify-center flex-wrap gap-2 sm:gap-4 mb-12"
         >
           {filters.map(filter => (
@@ -158,10 +180,14 @@ export default function PortfolioSection() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
 <<<<<<< HEAD
+<<<<<<< HEAD
           <AnimatePresence mode="wait">
 =======
           <AnimatePresence>
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+          <AnimatePresence mode="wait">
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -170,6 +196,9 @@ export default function PortfolioSection() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: -50 }}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
                 transition={{ 
                   type: "spring", 
                   stiffness: 260, 
@@ -177,9 +206,12 @@ export default function PortfolioSection() {
                   delay: index * 0.05,
                   layout: { duration: 0.3 }
                 }}
+<<<<<<< HEAD
 =======
                 transition={{ type: "spring", stiffness: 260, damping: 20, delay: index * 0.05 }}
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
                 className="cursor-pointer"
               >
                 <Card 
@@ -192,6 +224,7 @@ export default function PortfolioSection() {
                     <Image
                       src={item.mainImage}
                       alt={item.title}
+<<<<<<< HEAD
 <<<<<<< HEAD
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -206,10 +239,19 @@ export default function PortfolioSection() {
                       data-ai-hint={item.aiHint || "project image"}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
+                      quality={75}
+                      className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover"
+                      data-ai-hint={item.aiHint || "project image"}
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <Eye className="h-12 w-12 text-white/90 transform group-hover:scale-110 transition-transform duration-300" />
                     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">
                       {item.category}
@@ -217,6 +259,10 @@ export default function PortfolioSection() {
                      <div className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">
                         {item.category}
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+                    <div className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">
+                      {item.category}
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
                     </div>
                   </div>
                   <CardContent className="p-5 flex-grow flex flex-col bg-background">
@@ -225,11 +271,15 @@ export default function PortfolioSection() {
                       <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3 mb-3">{item.description}</p>
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
                     <Button 
                       variant="outline" 
                       size="sm" 
                       className="mt-auto self-start group/button hover:bg-primary hover:text-primary-foreground border-primary text-primary w-full sm:w-auto justify-center"
                       onClick={(e) => { e.stopPropagation(); handleItemClick(item); }} 
+<<<<<<< HEAD
                     >
                       Ver detalles <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
 =======
@@ -241,6 +291,10 @@ export default function PortfolioSection() {
                     >
                         Ver detalles <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
 >>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
+=======
+                    >
+                      Ver detalles <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
+>>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
                     </Button>
                   </CardContent>
                 </Card>
