@@ -4,7 +4,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from '@/components/ui/toaster';
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
 
 // Dynamically import components that are not needed immediately
 const FloatingActionButtonWrapper = dynamic(
@@ -39,13 +38,6 @@ const ScrollProgress = dynamic(
   }
 );
 
-// Loading fallback component
-const LoadingFallback = () => (
-  <div className="fixed inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm">
-    <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
-  </div>
-);
-
 export default function ClientLayout({
   children,
 }: {
@@ -59,16 +51,14 @@ export default function ClientLayout({
       disableTransitionOnChange
     >
       <HelmetProvider>
-        <Suspense fallback={<LoadingFallback />}>
-          <main className="min-h-[calc(100vh-0rem)]">
-            {children}
-          </main>
-          <Toaster />
-          <FloatingActionButtonWrapper />
-          <InvestmentFabWrapper />
-          <ServiceRequestFabWrapper />
-          <ScrollProgress />
-        </Suspense>
+        <main className="min-h-[calc(100vh-0rem)]">
+          {children}
+        </main>
+        <Toaster />
+        <FloatingActionButtonWrapper />
+        <InvestmentFabWrapper />
+        <ServiceRequestFabWrapper />
+        <ScrollProgress />
       </HelmetProvider>
     </ThemeProvider>
   );

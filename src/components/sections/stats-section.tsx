@@ -1,8 +1,4 @@
-"use client";
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-import dynamic from 'next/dynamic';
+"use clientimport dynamic from 'next/dynamic';
 import { Briefcase, CheckCircle, Building, Activity } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -12,24 +8,6 @@ const AnimatedCounter = dynamic(() => import("@/components/shared/animated-count
   loading: ({ count }) => <span className="text-5xl font-bold text-primary mb-2">{count}</span>
 });
 
-=======
-import AnimatedCounter from "@/components/shared/animated-counter";
-import { Briefcase, CheckCircle, Building, Activity } from "lucide-react";
-import { motion } from "framer-motion";
-
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-import dynamic from 'next/dynamic';
-import { Briefcase, CheckCircle, Building, Activity } from "lucide-react";
-import { motion } from "framer-motion";
-
-// Lazy load the AnimatedCounter component
-const AnimatedCounter = dynamic(() => import("@/components/shared/animated-counter"), {
-  ssr: false,
-  loading: ({ count }) => <span className="text-5xl font-bold text-primary mb-2">{count}</span>
-});
-
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 const statsData = [
   { count: 103, label: "Proyectos Completados", icon: <Briefcase className="h-10 w-10 text-primary" /> },
   { count: 41, label: "Optimizaciones de Servicios", icon: <CheckCircle className="h-10 w-10 text-primary" /> },
@@ -37,8 +15,6 @@ const statsData = [
   { count: 13, label: "Proyectos en Curso", icon: <Activity className="h-10 w-10 text-primary" /> },
 ];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 // Simplified animation variants
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -50,25 +26,6 @@ const cardVariants = {
       ease: "easeOut"
     }
   }
-=======
-=======
-// Simplified animation variants
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut"
-    }
-<<<<<<< HEAD
-  })
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-  }
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 };
 
 export default function StatsSection() {
@@ -79,26 +36,12 @@ export default function StatsSection() {
           {statsData.map((stat, index) => (
             <motion.div
               key={index}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
               custom={index}
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-<<<<<<< HEAD
-<<<<<<< HEAD
               className="bg-background p-8 rounded-xl shadow-lg text-center flex flex-col items-center transform hover:scale-102 transition-transform duration-300"
-=======
-              className="bg-background p-8 rounded-xl shadow-lg text-center flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-              className="bg-background p-8 rounded-xl shadow-lg text-center flex flex-col items-center transform hover:scale-102 transition-transform duration-300"
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
             >
               <div className="mb-4">{stat.icon}</div>
               <AnimatedCounter to={stat.count} className="text-5xl font-bold text-primary mb-2" />

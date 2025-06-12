@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -38,7 +31,7 @@ export default function HeroSection() {
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6" // Changed text color to white for better contrast
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -46,7 +39,7 @@ export default function HeroSection() {
           Deyconic te brinda <span className="text-primary">Innovación</span> y <span className="text-accent">Desarrollo</span>
         </motion.h1>
         <motion.p 
-          className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10" // Changed text color for better contrast
+          className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -58,10 +51,6 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
           <Button 
             size="lg" 
             className="text-lg px-4 sm:px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow group bg-primary hover:bg-primary/90 text-primary-foreground" 
@@ -69,14 +58,6 @@ export default function HeroSection() {
           >
             <span className="hidden sm:inline">Evalúa tu Empresa</span>
             <ArrowRight className="h-5 w-5 sm:ml-2 group-hover:translate-x-1 transition-transform" />
-<<<<<<< HEAD
-=======
-          <Button size="lg" className="text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow group bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => setIsModalOpen(true)}>
-            Evalúa tu Empresa
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
           </Button>
         </motion.div>
       </div>
