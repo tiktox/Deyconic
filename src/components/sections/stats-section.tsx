@@ -1,4 +1,5 @@
-"use clientimport dynamic from 'next/dynamic';
+"use client";
+import dynamic from 'next/dynamic';
 import { Briefcase, CheckCircle, Building, Activity } from "lucide-react";
 import { motion } from "framer-motion";
 

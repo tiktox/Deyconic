@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
@@ -19,18 +12,8 @@ const ELECTRIC_BLUE = "hsl(var(--primary))";
 const NEON_MINT_COLOR = "#2EF2AF";
 const DEEP_BLUE_SHOCKWAVE_COLOR = "hsl(var(--primary) / 0.7)";
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 const PARTICLE_COUNT = 3; 
 const LIGHTNING_COUNT = 2; 
-=======
-const PARTICLE_COUNT = 5; 
-const LIGHTNING_COUNT = 3; 
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-const PARTICLE_COUNT = 3; 
-const LIGHTNING_COUNT = 2; 
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 
 interface ParticleState {
   id: number;
@@ -85,54 +68,22 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
       setParticles(Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
         id: i,
         angle: (i / PARTICLE_COUNT) * 360,
-<<<<<<< HEAD
-<<<<<<< HEAD
         radiusFactor: 0.7,
         size: 1.5,
-=======
-        radiusFactor: 0.6 + Math.random() * 0.4, 
-        size: 1 + Math.random() * 1,
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-        radiusFactor: 0.7,
-        size: 1.5,
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
       })));
 
       setLightningStreaks(Array.from({ length: LIGHTNING_COUNT }, (_, i) => ({
         id: i,
-<<<<<<< HEAD
-<<<<<<< HEAD
         angle: (i / LIGHTNING_COUNT) * 360,
         lengthFactor: 0.8,
-=======
-        angle: Math.random() * 360,
-        lengthFactor: 0.7 + Math.random() * 0.3,
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-        angle: (i / LIGHTNING_COUNT) * 360,
-        lengthFactor: 0.8,
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
       })));
 
       return () => {
         mediaQuery.removeEventListener("change", handleChange);
         if (pressTimerRef.current !== null) {
-<<<<<<< HEAD
-<<<<<<< HEAD
           if (typeof pressTimerRef.current === 'number') {
             clearInterval(pressTimerRef.current);
           } else {
-=======
-          if (typeof pressTimerRef.current === 'number') { // interval
-            clearInterval(pressTimerRef.current);
-          } else { // timeout
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-          if (typeof pressTimerRef.current === 'number') {
-            clearInterval(pressTimerRef.current);
-          } else {
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
             clearTimeout(pressTimerRef.current);
           }
         }
@@ -142,15 +93,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
     }
   }, []);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   // Optimized idle animations
-=======
-  // Idle Animations (Halo, Shadow, Lightning)
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-  // Optimized idle animations
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
   useEffect(() => {
     if (!isMounted || prefersReducedMotion || isPressing) {
       if (idleAnimationIntervalRef.current) {
@@ -162,10 +105,6 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
       lightningControls.stop();
 
       if (prefersReducedMotion && isMounted && !isPressing) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
         haloControls.start({ 
           scale: 1, 
           opacity: 0.2, 
@@ -178,13 +117,6 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
           scale: 1, 
           transition: { duration: 0 } 
         });
-<<<<<<< HEAD
-=======
-        haloControls.start({ scale: 1, opacity: 0.2, backgroundColor: ELECTRIC_BLUE, boxShadow: `0 0 10px 2px ${ELECTRIC_BLUE}33`, transition: { duration: 0 }});
-        shadowControls.start({ opacity: 0.15, scale: 1, transition: { duration: 0 } });
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
       }
       return;
     }
@@ -193,8 +125,6 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
       setCurrentHaloColor(prevHaloColor => {
         const nextColor = prevHaloColor === ELECTRIC_BLUE ? NEON_MINT_COLOR : ELECTRIC_BLUE;
         
-<<<<<<< HEAD
-<<<<<<< HEAD
         // Simplified animations with reduced complexity
         haloControls.start({
           scale: [1, 1.2, 1],
@@ -215,33 +145,6 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
           transition: { duration: 0.2, delay: i * 0.1, ease: "circOut" }
         }));
         
-=======
-=======
-        // Simplified animations with reduced complexity
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
-        haloControls.start({
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.3, 0.1],
-          backgroundColor: nextColor,
-          boxShadow: [`0 0 15px 3px ${nextColor}4D`, `0 0 20px 5px ${nextColor}80`, `0 0 15px 3px ${nextColor}4D`],
-          transition: { duration: 2, ease: "easeInOut" },
-        });
-        
-        shadowControls.start({
-          opacity: [0.2, 0.3, 0.2],
-          scale: [1, 1.03, 1],
-          transition: { duration: 2, ease: "easeInOut" },
-        });
-        
-        lightningControls.start(i => ({
-          opacity: [0, 0.8, 0],
-          transition: { duration: 0.2, delay: i * 0.1, ease: "circOut" }
-        }));
-<<<<<<< HEAD
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-        
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
         return nextColor;
       });
     };
@@ -249,20 +152,9 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
     if (!idleAnimationIntervalRef.current) { 
       animateCycle();
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     
     // Increased interval to reduce animation frequency
     const intervalId = setInterval(animateCycle, 4000);
-=======
-    const randomDelay = isMounted ? Math.random() * 2000 + 3000 : 3000;
-    const intervalId = setInterval(animateCycle, randomDelay);
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-    
-    // Increased interval to reduce animation frequency
-    const intervalId = setInterval(animateCycle, 4000);
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
     idleAnimationIntervalRef.current = intervalId;
 
     return () => {
@@ -271,15 +163,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
         idleAnimationIntervalRef.current = null;
       }
     };
-<<<<<<< HEAD
-<<<<<<< HEAD
   }, [isMounted, prefersReducedMotion, isPressing, haloControls, shadowControls, lightningControls]);
-=======
-  }, [isMounted, prefersReducedMotion, isPressing, haloControls, shadowControls, lightningControls]); // Removed currentHaloColor
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-  }, [isMounted, prefersReducedMotion, isPressing, haloControls, shadowControls, lightningControls]);
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
 
 
   const isPressingRef = React.useRef(isPressing);
@@ -287,21 +171,9 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
 
   const clearExistingPressTimer = () => {
     if (pressTimerRef.current !== null) {
-<<<<<<< HEAD
-<<<<<<< HEAD
       if (typeof pressTimerRef.current === 'number') {
         clearInterval(pressTimerRef.current);
       } else {
-=======
-      if (typeof pressTimerRef.current === 'number') { // interval
-        clearInterval(pressTimerRef.current);
-      } else { // timeout
->>>>>>> a89d67076adcbae9a1cf4394d7ee9ced74cff707
-=======
-      if (typeof pressTimerRef.current === 'number') {
-        clearInterval(pressTimerRef.current);
-      } else {
->>>>>>> fc2cc9e92f36e1b2b279c4b2c3c700b1ab95053a
         clearTimeout(pressTimerRef.current);
       }
       pressTimerRef.current = null;
