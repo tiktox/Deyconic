@@ -36,12 +36,16 @@ const AnimatedCounter = memo(function AnimatedCounter({
   }, [isInView, to, duration]);
 
   return (
+<<<<<<< HEAD
     <span 
       ref={ref} 
       className={className}
       aria-live="polite"
       aria-atomic="true"
     >
+=======
+    <span ref={ref} className={className}>
+>>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
       {count}
     </span>
   );

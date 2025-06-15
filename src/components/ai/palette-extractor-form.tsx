@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
 "use client";
 
 import { useState, useEffect } from "react";
@@ -161,7 +164,11 @@ export default function PaletteExtractorForm() {
                     <Input id="imageFile" type="file" accept="image/*" {...register("imageFile")} className="hidden" />
                 </label>
             </div>
+<<<<<<< HEAD
             {errors.imageFile && <p className="text-sm text-destructive mt-1">{errors.imageFile.message}</p>}
+=======
+            {errors.imageFile && <p className="text-sm text-destructive mt-1">{String(errors.imageFile.message)}</p>}
+>>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
           </div>
 
           {error && (
