@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -57,10 +56,16 @@ const digitalizationFormSchema = z.object({
 
   // Step 5
   pregunta18: z.string().optional(), // Detalles adicionales
-  pregunta19: (typeof window === 'undefined' ? z.any() : z.instanceof(FileList))
+  pregunta19: z.any()
     .optional()
-    .refine(files => !files || files.length === 0 || files?.[0]?.size <= MAX_FILE_SIZE, `El tamaño máximo del archivo es ${MAX_FILE_SIZE / 1024 / 1024}MB.`)
-    .refine(files => !files || files.length === 0 || ALLOWED_FILE_TYPES.includes(files?.[0]?.type), "Tipo de archivo no soportado."), // Archivos adjuntos
+    .refine(
+      (files) => !files || files.length === 0 || files?.[0]?.size <= MAX_FILE_SIZE,
+      `El tamaño máximo del archivo es ${MAX_FILE_SIZE / 1024 / 1024}MB.`
+    )
+    .refine(
+      (files) => !files || files.length === 0 || ALLOWED_FILE_TYPES.includes(files?.[0]?.type),
+      "Tipo de archivo no soportado."
+    ), // Archivos adjuntos
   pregunta20: z.string().min(1, "Respuesta requerida"), // Referir a alguien
   pregunta22: z.string().optional(), // Nombre referido
   pregunta23: z.string().optional(), // Teléfono referido
@@ -228,7 +233,7 @@ export default function DigitalizationForm({ onSuccess }: DigitalizationFormProp
             <div>
               <Label htmlFor="pregunta19">Adjunte archivos relevantes (logo, imágenes, docs - máx 5MB)</Label>
               <Input type="file" id="pregunta19" {...register("pregunta19")} accept={ALLOWED_FILE_TYPES.join(",")} className="pt-2"/>
-              {errors.pregunta19 && <p className="text-sm text-destructive mt-1">{errors.pregunta19.message}</p>}
+              {errors.pregunta19 && <p className="text-sm text-destructive mt-1">{errors.pregunta19.message?.toString()}</p>}
             </div>
             <div><Label htmlFor="pregunta20">¿Tiene a alguien a quien pueda referirnos?</Label><Input id="pregunta20" {...register("pregunta20")} />{errors.pregunta20 && <p className="text-sm text-destructive mt-1">{errors.pregunta20.message}</p>}</div>
             <Label>Si nos refirió a alguien (opcional):</Label>
