@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Download } from "lucide-react";
-import { motion } from "framer-motion";
-import EvaluationModal from "@/components/modals/evaluation-modal";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,57 +19,63 @@ export default function HeroSection() {
           muted
           playsInline
           className="w-full h-full object-cover"
-          poster="https://picsum.photos/seed/hero-background/1920/1080" 
-          data-ai-hint="abstract technology"
         >
-          <source src="https://videos.pexels.com/video-files/3209211/3209211-sd_640_360_25fps.mp4" type="video/mp4" />
-          Tu navegador no soporta videos HTML5.
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-        {/* Overlay for text contrast */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/50" />
       </div>
-      
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.h1 
-<<<<<<< HEAD
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6" // Changed text color to white for better contrast
-=======
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6"
->>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          Deyconic te brinda <span className="text-primary">Innovación</span> y <span className="text-accent">Desarrollo</span>
-        </motion.h1>
-        <motion.p 
-<<<<<<< HEAD
-          className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10" // Changed text color for better contrast
-=======
-          className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10"
->>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          Lleva tu negocio al éxito digital con nuestras soluciones estratégicas y tecnológicas de vanguardia.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <Button 
-            size="lg" 
-            className="text-lg px-4 sm:px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-shadow group bg-primary hover:bg-primary/90 text-primary-foreground" 
+
+      {/* Content */}
+      <div className="container relative z-10 text-center text-white">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          Soluciones Tecnológicas Innovadoras
+        </h1>
+        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+          Transformamos ideas en realidad digital con soluciones tecnológicas de vanguardia
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            size="lg"
             onClick={() => setIsModalOpen(true)}
+            className="bg-primary hover:bg-primary/90"
           >
-            <span className="hidden sm:inline">Evalúa tu Empresa</span>
-            <ArrowRight className="h-5 w-5 sm:ml-2 group-hover:translate-x-1 transition-transform" />
+            Comienza Ahora
           </Button>
-        </motion.div>
+          <Button
+            size="lg"
+            variant="outline"
+            className="bg-transparent border-white text-white hover:bg-white/10"
+          >
+            Conoce Más
+          </Button>
+        </div>
       </div>
-      <EvaluationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      {/* Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Comienza tu proyecto</DialogTitle>
+          </DialogHeader>
+          <form className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">Nombre</Label>
+              <Input id="name" placeholder="Tu nombre" required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" placeholder="tu@email.com" required />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="message">Mensaje</Label>
+              <Input id="message" placeholder="¿En qué podemos ayudarte?" required />
+            </div>
+            <Button type="submit" className="w-full">
+              Enviar
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
