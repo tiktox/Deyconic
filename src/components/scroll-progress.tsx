@@ -6,15 +6,15 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Throttle function
-const throttle = (func, limit) => {
-  let inThrottle;
-  return function(...args) {
+const throttle = <T extends (...args: any[]) => any>(func: T, limit: number) => {
+  let inThrottle: boolean;
+  return function(...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
+      setTimeout(() => (inThrottle = false), limit);
     }
-  }
+  };
 };
 
 export function ScrollProgress() {
