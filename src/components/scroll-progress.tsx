@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Throttle function
 const throttle = <T extends (...args: any[]) => any>(func: T, limit: number) => {
   let inThrottle: boolean;
-  return function(...args: Parameters<T>) {
+  return function(this: any, ...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
