@@ -24,6 +24,9 @@ const nextConfig = {
   },
   swcMinify: true,
   output: 'standalone',
+  env: {
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+  }
 }
 
 module.exports = nextConfig 

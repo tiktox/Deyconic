@@ -1,6 +1,6 @@
 "use client";
 
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -41,18 +41,11 @@ const ScrollProgress = dynamic(
 );
 
 // Carga de fuentes
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   preload: true,
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap',
-  preload: true,
+  variable: '--font-inter',
 });
 
 export default function RootLayout({
@@ -65,7 +58,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://ik.imagekit.io" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-secondary`}>
+      <body className={`${inter.variable} antialiased bg-secondary`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <HelmetProvider>
             <main className="min-h-[100vh]">
