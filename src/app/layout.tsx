@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import dynamic from 'next/dynamic';
 import { HelmetProvider } from 'react-helmet-async';
 
-// Carga dinámica de componentes para optimizar rendimiento
+// Carga dinámica de componentes para optimizar rendimientoo
 const FloatingActionButtonWrapper = dynamic(
   () => import('@/components/custom/floating-action-button-wrapper'),
   {
