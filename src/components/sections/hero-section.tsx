@@ -31,7 +31,11 @@ export default function HeroSection() {
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1 
+<<<<<<< HEAD
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6" // Changed text color to white for better contrast
+=======
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6"
+>>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -39,7 +43,11 @@ export default function HeroSection() {
           Deyconic te brinda <span className="text-primary">Innovación</span> y <span className="text-accent">Desarrollo</span>
         </motion.h1>
         <motion.p 
+<<<<<<< HEAD
           className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10" // Changed text color for better contrast
+=======
+          className="text-lg sm:text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-10"
+>>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}

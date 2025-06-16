@@ -1,5 +1,12 @@
 "use client";
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
+>>>>>>> 40da95a71fd569c44311968692778291ffa07a61
 import dynamic from 'next/dynamic';
 import { Briefcase, CheckCircle, Building, Activity } from "lucide-react";
 import { motion } from "framer-motion";
@@ -38,6 +45,13 @@ export default function StatsSection() {
           {statsData.map((stat, index) => (
             <motion.div
               key={index}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+              custom={index}
+>>>>>>> 1e6b42619948c7d16d16e0429a6db7c42cfc2d1e
+>>>>>>> 40da95a71fd569c44311968692778291ffa07a61
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"

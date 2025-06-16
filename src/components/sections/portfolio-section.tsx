@@ -188,7 +188,11 @@ export default function PortfolioSection() {
           </AnimatePresence>
         </motion.div>
       </div>
-      <PortfolioDetailModal item={selectedItem} isOpen={isModalOpen} onClose={closeModal} />
+      <PortfolioDetailModal 
+        item={selectedItem} 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+      />
     </section>
   );
 }
