@@ -16,6 +16,14 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  swcMinify: true,
+  output: 'standalone',
 }
 
 module.exports = nextConfig 
