@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,20 +11,20 @@ import { toast } from "sonner";
 import { ColorPalette } from "@/components/color-palette";
 
 export default function PaletteExtractorForm() {
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUri, setImageUri] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [palette, setPalette] = useState<string[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!imageUrl) {
+    if (!imageUri) {
       toast.error("Por favor, ingresa una URL de imagen");
       return;
     }
 
     setIsLoading(true);
     try {
-      const result = await extractColorPalette({ imageUrl });
+      const result = await extractColorPalette({ imageUri });
       if (result.colors.length > 0) {
         setPalette(result.colors);
         toast.success("¡Paleta de colores extraída con éxito!");
@@ -54,13 +54,13 @@ export default function PaletteExtractorForm() {
         <CardContent>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="imageUrl">URL de la imagen</Label>
+              <Label htmlFor="imageUri">URL de la imagen</Label>
               <Input
-                id="imageUrl"
+                id="imageUri"
                 type="url"
                 placeholder="https://ejemplo.com/imagen.jpg"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
+                value={imageUri}
+                onChange={(e) => setImageUri(e.target.value)}
                 required
               />
             </div>
