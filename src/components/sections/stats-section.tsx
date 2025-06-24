@@ -11,10 +11,10 @@ const AnimatedCounter = dynamic(() => import("@/components/shared/animated-count
 });
 
 const statsData = [
-  { count: 103, label: "Proyectos Completados", icon: <Briefcase className="h-10 w-10 text-primary" /> },
-  { count: 41, label: "Optimizaciones de Servicios", icon: <CheckCircle className="h-10 w-10 text-primary" /> },
+  { count: 113, label: "Proyectos Completados", icon: <Briefcase className="h-10 w-10 text-primary" /> },
+  { count: 42, label: "Optimizaciones de Servicios", icon: <CheckCircle className="h-10 w-10 text-primary" /> },
   { count: 3, label: "Empresas Auditadas", icon: <Building className="h-10 w-10 text-primary" /> },
-  { count: 13, label: "Proyectos en Curso", icon: <Activity className="h-10 w-10 text-primary" /> },
+  { count: 9, label: "Proyectos en Curso", icon: <Activity className="h-10 w-10 text-primary" /> },
 ];
 
 // Simplified animation variants
