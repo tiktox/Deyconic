@@ -20,7 +20,7 @@ function Seo() {
     "telephone": "+1-829-931-5704",
     "openingHours": "Mo-Fr 08:00-6:00"
   };
-
+<title>Deyconic</title>
   return (
     <Helmet>
       {/* Schema Markup (JSON-LD) */}
@@ -28,13 +28,11 @@ function Seo() {
         {JSON.stringify(schemaData)}
       </script>
 
-      <title>Deyconic</title>
-
       <meta name="description" content="Deyconic: Creamos sitios web corporativos que generan leads y ventas. Expertos en diseño UX/UI y desarrollo web a medida para empresas globales. Potencia tu marca." />
 
       <meta property="og:url" content="https://deyconic.vercel.app/" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Deyconic | Diseño y Desarrollo Web Profesional para Empresas" />
+      <meta property="og:title" content="Deyconic" />
       <meta property="og:description" content="Transforma tu visión digital en sitios web de alto impacto para empresas internacionales. Diseño, desarrollo y estrategia para tu éxito online." />
       <meta property="og:image" content="https://deyconic.vercel.app/images/deyconic-og-image.jpg" />
       <meta property="og:image:width" content="1200" />

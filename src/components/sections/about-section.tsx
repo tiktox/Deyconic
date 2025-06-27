@@ -19,10 +19,10 @@ export default function AboutSection() {
               Sobre <span className="text-primary">Nosotros</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Deyconic es una institución que ofrece servicios digitales y físicos a empresas que no tienen presencia en redes sociales o no cuentan con una plataforma profesional que los posicione en los motores de búsqueda. Nuestro objetivo es lograr el impulso digital para pequeñas y grandes empresas y mejorar la interacción empresarial con el cliente.
+              Somos una institución que ofrece servicios digitales y físicos a empresas que no tienen presencia en redes sociales o no cuentan con una plataforma profesional que los posicione en los motores de búsqueda. Nuestro objetivo es lograr el impulso digital para pequeñas y grandes empresas y mejorar la interacción empresarial con el cliente.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Nuestro equipo de expertos fusiona creatividad y tecnología para potenciar el crecimiento de tu negocio, ya sea en el ámbito digital o físico, alcanzando el máximo nivel de desarrollo empresarial para tu organización. En Deyconic, creemos firmemente que "no hay límites para mejorar" y trabajamos firmemente para convertir esa visión en realidad.
+              Contamos con un equipo de expertos que fusiona creatividad y tecnología para potenciar el crecimiento de tu negocio, ya sea en el ámbito digital o físico, alcanzando el máximo nivel de desarrollo empresarial para tu organización. En Deyconic, creemos firmemente que "no hay límites para mejorar" y trabajamos firmemente para convertir esa visión en realidad.
             </p>
           </motion.div>
           <motion.div
