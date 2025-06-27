@@ -65,6 +65,10 @@ const geistMono = Geist_Mono({
 
 const lightLogoUrl = "https://ik.imagekit.io/ajkl5a98u/logo_1000x1000-removebg-preview.png?updatedAt=1746469003137";
 
+export const metadata: Metadata = {
+  title: 'Deyconic',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
