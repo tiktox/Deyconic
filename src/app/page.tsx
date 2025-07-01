@@ -5,7 +5,7 @@ import StatsSection from "@/components/sections/stats-section";
 import AboutSection from "@/components/sections/about-section";
 import MissionSection from "@/components/sections/mission-section";
 import ServicesSection from "@/components/sections/services-section";
-import PortfolioSection from "@/components/sections/portfolio-section";
+import PortfolioSectionHighlight from "@/components/sections/portfolio-section-highlight";
 import NewsSection from "@/components/sections/news-section";
 import UpdatesSection from "@/components/sections/updates-section";
 import Seo from "@/components/Seo";
@@ -21,7 +21,7 @@ export default function Home() {
         <AboutSection />
         <MissionSection />
         <ServicesSection />
-        <PortfolioSection />
+        <PortfolioSectionHighlight />
         <NewsSection />
         <UpdatesSection />
       </main>

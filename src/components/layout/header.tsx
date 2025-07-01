@@ -8,12 +8,13 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle, SheetHeader 
 import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { DeyconicLogo } from "@/components/icons/deyconic-logo";
+import { useRouter, usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "#hero", label: "Inicio" },
   { href: "#sobre-nosotros", label: "Nosotros" },
   { href: "#servicios", label: "Servicios" },
-  { href: "#portafolio", label: "Portafolio" },
+  { href: "#proyectos", label: "Proyectos" },
   { href: "#noticias", label: "Noticias" },
   { href: "#actualizaciones", label: "Actualizaciones" },
   // { href: "#preguntas", label: "Preguntas" }, // Temporarily removed for space, can be re-added
@@ -23,9 +24,10 @@ const navLinks = [
 const originalLightLogoUrl = "https://ik.imagekit.io/ajkl5a98u/logo_1000x1000-removebg-preview.png?updatedAt=1746469003137";
 const originalDarkLogoUrl = "https://ik.imagekit.io/ajkl5a98u/1000x1000-removebg-preview2.0.png?updatedAt=1746468946560";
 
-
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +36,37 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Función para manejar la navegación y el scroll
+  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (href === "/proyectos") {
+      router.push("/proyectos");
+      return;
+    }
+    const isHome = pathname === "/";
+    const targetId = href.substring(1);
+    if (isHome) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 70, // Ajusta el offset según el header
+          behavior: "smooth",
+        });
+      }
+    } else {
+      router.push(`/${href}`);
+      setTimeout(() => {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: "smooth",
+          });
+        }
+      }, 500); // Espera a que cargue la página
+    }
+  };
 
   return (
     <motion.header
@@ -67,17 +100,7 @@ export default function Header() {
                 className={`px-2.5 py-2 text-xs xl:text-sm xl:px-3 transition-colors hover:text-primary hover:bg-primary/10 ${
                   isScrolled ? 'text-foreground' : 'text-white'
                 }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const targetId = link.href.substring(1);
-                  const targetElement = document.getElementById(targetId);
-                  if (targetElement) {
-                    window.scrollTo({
-                      top: targetElement.offsetTop,
-                      behavior: "smooth",
-                    });
-                  }
-                }}
+                onClick={handleNavClick(link.href)}
               >
                 {link.label}
               </Link>
@@ -121,17 +144,7 @@ export default function Header() {
                         <Link
                           href={link.href}
                           className="block py-2.5 px-3 rounded-md text-lg font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
-                           onClick={(e) => {
-                            e.preventDefault();
-                            const targetId = link.href.substring(1);
-                            const targetElement = document.getElementById(targetId);
-                            if (targetElement) {
-                              window.scrollTo({
-                                top: targetElement.offsetTop,
-                                behavior: "smooth",
-                              });
-                            }
-                           }}
+                          onClick={handleNavClick(link.href)}
                         >
                           {link.label}
                         </Link>
