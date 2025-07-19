@@ -4,57 +4,9 @@ export const metadata: Metadata = {
   title: 'Deyconic',
   description: 'Somos una institución que ofrece servicios digitales y físicos a empresas que no tienen presencia en redes sociales o no cuentan con una plataforma profesional que los posicione en los motores de búsqueda.',
 }
-
-"use client";
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-// import { AuthProvider } from '@/components/auth/auth-provider'; // Assuming this will be created
-// import AppHeader from '@/components/layout/AppHeader'; // Assuming this will be created
-import { ThemeProvider } from '@/components/theme-provider';
-import dynamic from 'next/dynamic';
-import { HelmetProvider } from 'react-helmet-async';
-
-// Dynamically import components that are not needed immediately
-const FloatingActionButtonWrapper = dynamic(
-  () => import('@/components/custom/floating-action-button-wrapper'),
-  { ssr: false }
-);
-
-const InvestmentFabWrapper = dynamic(
-  () => import('@/components/custom/investment-fab-wrapper'),
-  { ssr: false }
-);
-
-const ServiceRequestFabWrapper = dynamic(
-  () => import('@/components/custom/service-request-fab-wrapper'),
-  { ssr: false }
-);
-
-const ScrollProgress = dynamic(
-  () => import('@/components/scroll-progress').then(mod => ({ default: mod.ScrollProgress })),
-  { ssr: false }
-);
-
-// Placeholder for AppHeader - will be created later if requested
-const AppHeader = () => (
-  <header className="bg-background text-foreground p-4 shadow-md h-16">
-    {/* Placeholder content */}
-  </header>
-);
-
-// Placeholder for AuthProvider - will be created later if requested
-// The current AuthProvider is effectively ThemeProvider
-const AuthProvider = ({ children }: { children: React.ReactNode }) => (
-  <ThemeProvider
-    attribute="class"
-    defaultTheme="system"
-    enableSystem
-    disableTransitionOnChange
-  >
-    {children}
-  </ThemeProvider>
-);
+import ClientLayoutWrapper from '@/components/client-layout-wrapper';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -78,24 +30,11 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-secondary`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <HelmetProvider>
-            {/* <AppHeader /> */} {/* Temporarily commenting out as it's a placeholder */}
-            <main className="min-h-[calc(100vh-0rem)]"> {/* Adjust 4rem based on AppHeader height, using 0 for now */}
-              {children}
-            </main>
-            <Toaster />
-            <FloatingActionButtonWrapper />
-            <InvestmentFabWrapper />
-            <ServiceRequestFabWrapper />
-            <ScrollProgress /> {/* Added the ScrollProgress component here */}
-          </HelmetProvider>
-        </ThemeProvider>
+        <ClientLayoutWrapper>
+          <main className="min-h-[calc(100vh-0rem)]">
+            {children}
+          </main>
+        </ClientLayoutWrapper>
       </body>
     </html>
   );
