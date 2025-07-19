@@ -3,7 +3,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Deyconic | Servicios Digitales y Físicos para Empresas',
+  title: 'Deyconic',
   description: 'Somos una institución que ofrece servicios digitales y físicos a empresas que no tienen presencia en redes sociales o no cuentan con una plataforma profesional que los posicione en los motores de búsqueda.',
 }
 import { Geist, Geist_Mono } from 'next/font/google';

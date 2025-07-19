@@ -22,7 +22,7 @@ function Seo() {
   };
   return (
     <Helmet>
-      <title>Deyconic | Servicios Digitales y Físicos para Empresas</title>
+      <title>Deyconic</title>
       
       {/* Schema Markup (JSON-LD) */}
       <script type="application/ld+json">
@@ -33,7 +33,7 @@ function Seo() {
 
       <meta property="og:url" content="https://deyconic.vercel.app/" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Deyconic | Servicios Digitales y Físicos para Empresas" />
+      <meta property="og:title" content="Deyconic" />
       <meta property="og:description" content="Somos una institución que ofrece servicios digitales y físicos a empresas que no tienen presencia en redes sociales o no cuentan con una plataforma profesional que los posicione en los motores de búsqueda." />
       <meta property="og:image" content="https://deyconic.vercel.app/images/deyconic-og-image.jpg" />
       <meta property="og:image:width" content="1200" />
@@ -42,7 +42,7 @@ function Seo() {
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@Deyconic" />
-      <meta name="twitter:title" content="Deyconic | Servicios Digitales y Físicos para Empresas" />
+      <meta name="twitter:title" content="Deyconic" />
       <meta name="twitter:description" content="Somos una institución que ofrece servicios digitales y físicos a empresas que no tienen presencia en redes sociales o no cuentan con una plataforma profesional que los posicione en los motores de búsqueda." />
       <meta name="twitter:image" content="https://deyconic.vercel.app/images/deyconic-twitter-image.jpg" />
 
