@@ -40,11 +40,11 @@ export default function Header() {
   // Función para manejar la navegación y el scroll
   const handleNavClick = (href: string) => (e: React.MouseEvent) => {
     e.preventDefault();
-    if (href === "/proyectos") {
+    if (href "/proyectos") {
       router.push("/proyectos");
       return;
     }
-    const isHome = pathname === "/";
+    const isHome = pathname "/";
     const targetId = href.substring(1);
     if (isHome) {
       const targetElement = document.getElementById(targetId);

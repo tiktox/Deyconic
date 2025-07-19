@@ -28,8 +28,8 @@ const servicesData = [
   },
   {
     icon: <Network className="h-10 w-10 text-primary mb-4" />,
-    title: "Zonas Francas y Operadores Logísticos",
-    description: "Impulsar la eficiencia operativa, la visibilidad de la cadena de suministro y la resiliencia logística mediante la digitalización inteligente y el cumplimiento proactivo.",
+    title: "Auditoría empresarial",
+    description: "Impulsar la eficiencia operativa, la visibilidad de la cadena de suministro y la resiliencia logística mediante la digitalización inteligente, la auditoria empresarial y el cumplimiento proactivo.",
   },
   {
     icon: <Landmark className="h-10 w-10 text-primary mb-4" />,
