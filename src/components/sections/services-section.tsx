@@ -38,7 +38,7 @@ const servicesData = [
   },
   {
     icon: <Clapperboard className="h-10 w-10 text-primary mb-4" />,
-    title: "criblector",
+    title: "Criblector",
     description: "Maximizar el impacto y alcance del contenido, diversificar las fuentes de monetización, optimizar la gestión de la comunidad y profesionalizar la operación creativa.",
   },
 ];
