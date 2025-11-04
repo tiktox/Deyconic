@@ -6,10 +6,6 @@ import dynamic from 'next/dynamic';
 import { HelmetProvider } from 'react-helmet-async';
 
 // Dynamically import components that are not needed immediately
-const FloatingActionButtonWrapper = dynamic(
-  () => import('@/components/custom/floating-action-button-wrapper'),
-  { ssr: false }
-);
 
 const InvestmentFabWrapper = dynamic(
   () => import('@/components/custom/investment-fab-wrapper'),
@@ -41,7 +37,7 @@ export default function ClientLayoutWrapper({
       <HelmetProvider>
         {children}
         <Toaster />
-        <FloatingActionButtonWrapper />
+
         <InvestmentFabWrapper />
         <ServiceRequestFabWrapper />
         <ScrollProgress />

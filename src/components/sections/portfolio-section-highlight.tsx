@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function PortfolioSectionHighlight() {
   return (
+    <section id="proyectos">
     <div className="relative w-full h-[350px] sm:h-[420px] flex items-center justify-center mb-12 overflow-hidden rounded-2xl shadow-lg">
       <video
         src="https://videos.pexels.com/video-files/3191248/3191248-hd_1920_1080_25fps.mp4"
@@ -21,5 +22,6 @@ export default function PortfolioSectionHighlight() {
         </Button>
       </a>
     </div>
+    </section>
   );
 }

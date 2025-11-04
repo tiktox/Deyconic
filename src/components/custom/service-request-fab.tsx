@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { motion } from "framer-motion";
 
 const servicesData = [
   {
@@ -52,14 +53,29 @@ export default function ServiceRequestFAB() {
 
   return (
     <>
-      <Button
-        onClick={() => setIsModalOpen(true)}
-        className="fixed bottom-24 right-6 z-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary hover:bg-primary/90"
-        size="lg"
+      <motion.div
+        className="fixed bottom-24 right-6 z-50"
+        initial={{ x: 100, opacity: 0 }}
+        animate={{
+          x: [100, 0, 0, 100],
+          opacity: [0, 1, 1, 0]
+        }}
+        transition={{
+          duration: 8,
+          times: [0, 0.125, 0.875, 1],
+          repeat: Infinity,
+          repeatDelay: 2
+        }}
       >
-        <MessageSquarePlus className="h-6 w-6 mr-2" />
-        <span className="hidden sm:inline">Solicitar Servicio</span>
-      </Button>
+        <Button
+          onClick={() => setIsModalOpen(true)}
+          className="rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-primary hover:bg-primary/90"
+          size="lg"
+        >
+          <MessageSquarePlus className="h-6 w-6 mr-2" />
+          <span className="hidden sm:inline">Solicitar Servicio</span>
+        </Button>
+      </motion.div>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[600px]">
