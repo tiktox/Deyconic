@@ -1,4 +1,5 @@
 import Seo from "@/components/Seo";
+
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import PaletteExtractorForm from "@/components/ai/palette-extractor-form";

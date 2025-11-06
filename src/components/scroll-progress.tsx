@@ -1,41 +1,45 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronUp } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Throttle function
-const throttle = (func, limit) => {
-  let inThrottle;
-  return function(...args) {
-    if (!inThrottle) {
-      func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  }
-};
-
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const rafRef = useRef<number>();
+  const lastScrollY = useRef(0);
 
-  const handleScroll = useCallback(throttle(() => {
-    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const currentScroll = window.scrollY;
-    const scrollProgress = totalHeight > 0 ? (currentScroll / totalHeight) * 100 : 0;
+  const handleScroll = useCallback(() => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+    }
     
-    requestAnimationFrame(() => {
+    rafRef.current = requestAnimationFrame(() => {
+      const currentScroll = window.scrollY;
+      
+      // Only update if scroll changed significantly
+      if (Math.abs(currentScroll - lastScrollY.current) < 5) return;
+      
+      const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollProgress = totalHeight > 0 ? (currentScroll / totalHeight) * 100 : 0;
+      
       setProgress(scrollProgress);
-      setShowScrollToTop(scrollProgress > 95);
+      setShowScrollToTop(scrollProgress > 20);
+      lastScrollY.current = currentScroll;
     });
-  }, 16), []); // 16ms = ~60fps
+  }, []);
 
   useEffect(() => {
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
   }, [handleScroll]);
 
   const scrollToTop = () => {

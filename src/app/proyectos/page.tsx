@@ -1,5 +1,5 @@
 "use client";
-
+import React from "react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Image from "next/image";
@@ -79,6 +79,23 @@ const portfolioData: PortfolioItem[] = [
     ],
     projectLink: "#",
     aiHint: "e-commerce marketplacee"
+  },
+   {
+    id: "5",
+    title: "TACONAZO",
+    category: "DIGITALIZACION - RESTAURANTE",
+    client: "RESTAURANTE TACONAZO",
+    date: "2024",
+    description: "Desarrollo de una plataforma web completa para un restaurante, incluyendo sistema de pedidos online, gestión de clientes y marketing digital.",
+    features: ["Seguridad", "Innovación", "Tecnologia", "Exclusividad"],
+    mainImage: "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070327.jpg?updatedAt=1762369748928",
+    thumbnails: [
+      "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070404.jpg?updatedAt=1762369748901",
+      "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070434.jpg?updatedAt=1762369749756",
+      "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070501.jpg?updatedAt=1762369749028",
+    ],
+    projectLink: "https://taconazo.vercel.app",
+    aiHint: "e-commerce plate"
   },
 ];
 

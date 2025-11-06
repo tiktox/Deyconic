@@ -60,6 +60,23 @@ const portfolioData: PortfolioItem[] = [
     projectLink: "https://tiktox.github.io/xmchat/",
     aiHint: "e-commerce marketplace"
   },
+   {
+    id: "4",
+    title: "Plataforma de Innovación - Taconazo",
+    category: "Innovación",
+    client: "Taconazo restaurant",
+    date: "2025",
+    description: "Desarrollo de una plataforma profesional e innovadora para un restaurante de tacos",
+    features: ["Plataforma e-commerce", "Sistema de reservas", "Reservar mesas", "Panel de contacto"],
+    mainImage: "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070327.jpg?updatedAt=1762369748928",
+    thumbnails: [
+        "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070434.jpg?updatedAt=1762369749756",
+        "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070404.jpg?updatedAt=1762369748901",
+        "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070501.jpg?updatedAt=1762369749028",
+    ],
+    projectLink: "https://taconazo.vercel.app",
+    aiHint: "e-commerce marketplace"
+  },
 ];
 
 const filters = ["Todos", "Gestión", "Digitalización", "Innovación"];
@@ -132,35 +149,33 @@ export default function PortfolioSection() {
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8, y: -50 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ 
-                  type: "spring", 
-                  stiffness: 260, 
-                  damping: 20, 
+                  duration: 0.3,
                   delay: index * 0.05,
-                  layout: { duration: 0.3 }
+                  ease: "easeOut"
                 }}
                 className="cursor-pointer"
               >
                 <Card 
                   onClick={() => handleItemClick(item)} 
-                  className="overflow-hidden group h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 rounded-xl hover:border-primary border-2 border-transparent focus-within:border-primary focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 focus-within:ring-offset-secondary min-h-[380px] sm:min-h-[400px]"
+                  className="overflow-hidden group h-full flex flex-col shadow-lg hover:shadow-xl transition-shadow duration-200 rounded-xl hover:border-primary border-2 border-transparent min-h-[380px] sm:min-h-[400px]"
                   tabIndex={0} 
                   onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleItemClick(item); }}
                 >
                   <div className="relative h-52 sm:h-60 w-full overflow-hidden">
                     <Image
-                      src={item.mainImage}
+                      src={`${item.mainImage}?tr=w-400,h-300,q-70,f-webp`}
                       alt={item.title}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       loading="lazy"
-                      quality={75}
-                      className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover"
-                      data-ai-hint={item.aiHint || "project image"}
+                      quality={70}
+                      className="object-cover will-change-transform"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                       <Eye className="h-12 w-12 text-white/90 transform group-hover:scale-110 transition-transform duration-300" />

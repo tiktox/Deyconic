@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 // Lazy load the AnimatedCounter component
 const AnimatedCounter = dynamic(() => import("@/components/shared/animated-counter"), {
   ssr: false,
-  loading: ({ count }) => <span className="text-5xl font-bold text-primary mb-2">{count}</span>
+  loading: () => <span className="text-5xl font-bold text-primary mb-2">0</span>
 });
 
 const statsData = [
@@ -41,8 +41,8 @@ export default function StatsSection() {
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              className="bg-background p-8 rounded-xl shadow-lg text-center flex flex-col items-center transform hover:scale-102 transition-transform duration-300"
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-background p-8 rounded-xl shadow-lg text-center flex flex-col items-center hover:shadow-xl transition-shadow duration-200"
             >
               <div className="mb-4">{stat.icon}</div>
               <AnimatedCounter to={stat.count} className="text-5xl font-bold text-primary mb-2" />

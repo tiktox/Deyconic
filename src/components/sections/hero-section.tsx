@@ -1,31 +1,52 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import EvaluationModal from "@/components/modals/evaluation-modal";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const handleCanPlay = () => setVideoLoaded(true);
+      video.addEventListener('canplay', handleCanPlay);
+      return () => video.removeEventListener('canplay', handleCanPlay);
+    }
+  }, []);
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Optimized Background */}
       <div className="absolute inset-0 z-0">
+        {!videoLoaded && (
+          <Image
+            src="https://picsum.photos/1920/1080?random=1"
+            alt="Hero background"
+            fill
+            priority
+            quality={60}
+            className="object-cover"
+            sizes="100vw"
+          />
+        )}
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
-          poster="https://picsum.photos/seed/hero-background/1920/1080" 
-          data-ai-hint="abstract technology"
+          preload="metadata"
+          className={`w-full h-full object-cover transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src="https://videos.pexels.com/video-files/3209211/3209211-sd_640_360_25fps.mp4" type="video/mp4" />
-          Tu navegador no soporta videos HTML5.
         </video>
-        {/* Overlay for text contrast */}
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
       
