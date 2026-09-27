@@ -1,0 +1,52 @@
+rules_version = '2';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Reglas de seguridad de Firestore — Deyconic / Deyconic Plus
+//
+// Estructura de datos:
+//   empresas/{uid}                    → Documento de registro de Deyconic Plus
+//   cierres/{uid}/diarios/{fecha}     → Un cierre diario por fecha (yyyy-MM-dd)
+//   metas/{uid}/items/{id}            → Metas creadas tras 3 cierres
+//
+// Principio: cada usuario solo puede leer y escribir SU PROPIA información.
+// El {uid} del path debe coincidir con request.auth.uid del token de Firebase.
+// ─────────────────────────────────────────────────────────────────────────────
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Registro empresarial (Deyconic Plus) ────────────────────────────────
+    // Creado en el registro; leído en el dashboard; actualizado con
+    // contadores (closingsCompleted) al completar cierres.
+    match /empresas/{uid} {
+      allow read, update: if request.auth != null && request.auth.uid == uid;
+      allow create: if request.auth != null
+                    && request.auth.uid == uid
+                    && request.resource.data.uid == uid;
+      allow delete: if false; // la empresa nunca se borra desde el cliente
+    }
+
+    // ── Cierres diarios ─────────────────────────────────────────────────────
+    // Uno por día por usuario. Contienen la conversación completa,
+    // progreso, resumen ejecutivo y problemas tratados.
+    match /cierres/{uid}/diarios/{fecha} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // ── Metas ────────────────────────────────────────────────────────────────
+    // Metas del usuario. La restricción de "3 cierres" es de UX;
+    // aquí protegemos la propiedad del dato.
+    match /metas/{uid}/items/{metaId} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // ── Todo lo demás: denegado por defecto ─────────────────────────────────
+    // ⚠️ Si tu proyecto usa otras colecciones (formularios de contacto,
+    // analíticas, etc.), decláralas aquí ANTES de desplegar o dejarán
+    // de funcionar. Ejemplo:
+    //   match /contactos/{doc} { allow create: if true; allow read: if false; }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,232 @@
+/* ==========================================================================
+   home.css — Estilos personalizados de la PÁGINA PRINCIPAL (Deyconic)
+   --------------------------------------------------------------------------
+   Este archivo complementa a Tailwind CSS. Aquí puedes editar con CSS
+   normal los estilos "especiales" de la página principal:
+
+     1. Fondo negro innovador de la sección de portafolio
+     2. Tarjetas de proyectos (altura, bordes, brillo al pasar el mouse)
+     3. Botones de filtro (All / Desarrollos web / Aplicaciones mobiles)
+
+   Tip: puedes reutilizar los colores del tema (definidos en globals.css)
+   escribiendo hsl(var(--primary)), hsl(var(--background)), etc.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Variables rápidas: cambia estos valores para ajustar el diseño
+   -------------------------------------------------------------------------- */
+:root {
+  --home-portfolio-black: #000;    /* Fondo "super negro" de la sección */
+  --home-grid-line: rgba(255, 255, 255, 0.06); /* Color de la rejilla */
+  --home-grid-size: 72px;             /* Tamaño de cada celda de la rejilla */
+
+  --home-card-height: 440px;          /* Altura de tarjetas en móvil */
+  --home-card-height-sm: 500px;       /* Altura en tablets (>= 640px) */
+  --home-card-height-xl: 560px;       /* Altura en pantallas grandes (>= 1280px) */
+  --home-card-radius: 1rem;           /* Redondeo de las tarjetas */
+  --home-card-border: rgba(255, 255, 255, 0.10); /* Borde en reposo */
+}
+
+/* --------------------------------------------------------------------------
+   1. Sección Portafolio: fondo negro + capas decorativas
+   -------------------------------------------------------------------------- */
+.home-portfolio-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #000;
+}
+
+/* Contenedor de TODAS las capas del fondo (no intercepta clics) */
+.home-portfolio-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Rejilla tecnológica con desvanecido radial hacia los bordes */
+.home-portfolio-grid-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(to right, var(--home-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--home-grid-line) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 30%, transparent 75%);
+}
+
+/* Resplandores de color tipo "aurora" (su opacidad se anima desde React) */
+.home-portfolio-glow {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+.home-portfolio-glow--top {
+  top: -8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 420px;
+  width: 720px;
+  background-color: #000;
+  filter: blur(140px);
+}
+.home-portfolio-glow--cyan {
+  bottom: -160px;
+  right: -120px;
+  height: 380px;
+  width: 380px;
+  background-color:black;   
+  filter: blur(130px);
+}
+.home-portfolio-glow--left {
+  bottom: -140px;
+  left: -140px;
+  height: 340px;
+  width: 340px;
+  background-color: #000;
+  filter: blur(120px);
+}
+
+/* Fundidos que unen el negro con las secciones vecinas */
+.home-portfolio-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  pointer-events: none;
+}
+.home-portfolio-fade--top {
+  top: 0;
+  background: #000;
+}
+.home-portfolio-fade--bottom {
+  bottom: 0;
+  background:#000;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tarjetas de proyectos: rectangulares y altas, solo con el título
+   -------------------------------------------------------------------------- */
+.home-portfolio-card {
+  position: relative;
+  width: 100%;
+  height: var(--home-card-height);
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: var(--home-card-radius);
+  border: 1px solid var(--home-card-border);
+  background-color: #000;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+@media (min-width: 640px) {
+  .home-portfolio-card { height: var(--home-card-height-sm); }
+}
+@media (min-width: 1280px) {
+  .home-portfolio-card { height: var(--home-card-height-xl); }
+}
+
+/* Brillo con el color primario al pasar el mouse (o enfocar con teclado) */
+.home-portfolio-card:hover,
+.home-portfolio-card:focus-visible {
+  border-color: hsl(var(--primary) / 0.6);
+  box-shadow: #000;
+}
+
+/* Imagen de la tarjeta: zoom suave al pasar el mouse */
+.home-portfolio-card img {
+  object-fit: cover;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+.home-portfolio-card:hover img,
+.home-portfolio-card:focus-visible img {
+  transform: scale(1.05);
+}
+
+/* Degradado oscuro que hace legible el título sobre la imagen */
+.home-portfolio-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.25), transparent);
+  transition: background 0.3s ease;
+}
+.home-portfolio-card:hover .home-portfolio-card-overlay,
+.home-portfolio-card:focus-visible .home-portfolio-card-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.25), transparent);
+}
+
+/* Título del proyecto (lo único visible en la tarjeta) */
+.home-portfolio-card-title-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem;
+}
+@media (min-width: 640px) {
+  .home-portfolio-card-title-wrap { padding: 1.5rem; }
+}
+.home-portfolio-card-title {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.375;
+  transition: color 0.3s ease;
+}
+@media (min-width: 640px) {
+  .home-portfolio-card-title { font-size: 1.25rem; }
+}
+.home-portfolio-card:hover .home-portfolio-card-title,
+.home-portfolio-card:focus-visible .home-portfolio-card-title {
+  color: hsl(var(--primary));
+}
+
+/* Mensaje cuando una categoría no tiene proyectos */
+.home-portfolio-empty {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   3. Botones de filtro del portafolio
+   -------------------------------------------------------------------------- */
+.home-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (min-width: 640px) {
+  .home-filter-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+.home-filter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Estado ACTIVO del filtro (por defecto: "All") */
+.home-filter-btn--active,
+.home-filter-btn--active:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: transparent;
+  box-shadow: #000;
+}
+
+.ServicesSection {
+  background:black;
+}
