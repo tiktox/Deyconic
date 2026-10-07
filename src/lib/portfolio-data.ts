@@ -182,3 +182,5 @@ export const portfolioProjects: PortfolioProject[] = [
 export function getPortfolioProject(slug: string) {
   return portfolioProjects.find((project) => project.slug === slug);
 }
+
+
