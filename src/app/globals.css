@@ -52,94 +52,100 @@ body {
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Blanco Nébula */
-    --foreground: 222 30% 14%; /* Grafito Intenso */
-    
-    --card: 0 0% 100%; /* Blanco Puro */
-    --card-foreground: 222 30% 14%; /* Grafito Intenso */
-    
-    --popover: 0 0% 100%; /* Blanco Puro */
-    --popover-foreground: 222 30% 14%; /* Grafito Intenso */
-    
-    --primary: 222 100% 50%; /* Azul Cobalto Eléctrico */
-    --primary-foreground: 0 0% 100%; /* Blanco Puro */
-    
-    --secondary: 185 100% 43%; /* Cian Energético */
-    --secondary-foreground: 0 0% 100%; /* Blanco Puro */
-    
-    --muted: 214 24% 75%; /* Estaño Claro */
-    --muted-foreground: 222 22% 41%; /* Acero Suave */
-    
-    --accent: 26 100% 50%; /* Naranja Fusión */
-    --accent-foreground: 0 0% 100%; /* Blanco Puro */
+    --brand-white: 0 0% 100%;
+    --brand-light-gray: 210 17% 96%;
+    --brand-blue: 195 72% 58%;
+    --brand-yellow: 45 100% 58%;
+    --brand-black: 220 14% 8%;
+
+    --background: var(--brand-white);
+    --foreground: var(--brand-black);
+
+    --card: var(--brand-white);
+    --card-foreground: var(--brand-black);
+
+    --popover: var(--brand-white);
+    --popover-foreground: var(--brand-black);
+
+    --primary: var(--brand-blue);
+    --primary-foreground: var(--brand-black);
+
+    --secondary: var(--brand-light-gray);
+    --secondary-foreground: var(--brand-black);
+
+    --muted: var(--brand-light-gray);
+    --muted-foreground: 220 9% 42%;
+
+    --accent: var(--brand-yellow);
+    --accent-foreground: var(--brand-black);
     
     --destructive: 350 100% 61%; /* Rojo Alerta Neón */
     --destructive-foreground: 0 0% 100%; /* Blanco Puro */
     
-    --border: 216 33% 91%; /* Platino Sutil */
-    --input: 216 33% 91%; /* Platino Sutil */
-    --ring: 222 100% 60%; /* Brighter Azul Cobalto Eléctrico for ring */
-    
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --border: 220 10% 88%;
+    --input: 220 10% 88%;
+    --ring: var(--brand-blue);
+
+    --chart-1: var(--brand-blue);
+    --chart-2: var(--brand-yellow);
+    --chart-3: 0 0% 45%;
+    --chart-4: 0 0% 70%;
+    --chart-5: 0 0% 20%;
     --radius: 0.5rem;
 
-    --sidebar-background: 210 40% 98%;   /* Blanco Nébula (same as main background) */
-    --sidebar-foreground: 222 30% 14%;   /* Grafito Intenso */
-    --sidebar-primary: 222 100% 50%;    /* Azul Cobalto Eléctrico */
-    --sidebar-primary-foreground: 0 0% 100%; /* Blanco Puro */
-    --sidebar-accent: 222 100% 92%;     /* Lighter Azul Cobalto Eléctrico for sidebar item hover/active */
-    --sidebar-accent-foreground: 222 100% 35%; /* Darker Azul Cobalto Eléctrico for text on sidebar accent */
-    --sidebar-border: 216 33% 91%;      /* Platino Sutil */
-    --sidebar-ring: 222 100% 60%;       /* Brighter Azul Cobalto Eléctrico for ring */
+    --sidebar-background: var(--brand-white);
+    --sidebar-foreground: var(--brand-black);
+    --sidebar-primary: var(--brand-blue);
+    --sidebar-primary-foreground: var(--brand-black);
+    --sidebar-accent: var(--brand-light-gray);
+    --sidebar-accent-foreground: var(--brand-black);
+    --sidebar-border: 220 20% 86%;
+    --sidebar-ring: var(--brand-blue);
   }
 
   .dark {
-    --background: 210 39% 8%; /* Night Graphite */
-    --foreground: 210 33% 93%; /* Silver White */
+    --background: var(--brand-white);
+    --foreground: var(--brand-black);
 
-    --card: 213 19% 11%; /* Dark Navy */
-    --card-foreground: 210 33% 93%; /* Silver White */
+    --card: var(--brand-white);
+    --card-foreground: var(--brand-black);
 
-    --popover: 213 19% 11%; /* Dark Navy */
-    --popover-foreground: 210 33% 93%; /* Silver White */
+    --popover: var(--brand-white);
+    --popover-foreground: var(--brand-black);
 
-    --primary: 195 100% 50%; /* Electric Blue - Retaining original dark mode primary */
-    --primary-foreground: 210 39% 8%; /* Night Graphite */
+    --primary: var(--brand-blue);
+    --primary-foreground: var(--brand-black);
 
-    --secondary: 213 19% 15%; /* Lighter Dark Navy */
-    --secondary-foreground: 210 10% 58%; /* Steel Gray */
+    --secondary: var(--brand-light-gray);
+    --secondary-foreground: var(--brand-black);
 
-    --muted: 213 19% 20%; /* Dark Muted */
-    --muted-foreground: 210 10% 70%; /* Lighter Steel Gray */
+    --muted: var(--brand-light-gray);
+    --muted-foreground: 220 9% 42%;
 
-    --accent: 41 100% 67%; /* Solar Amber - Retaining original dark mode accent */
-    --accent-foreground: 210 39% 8%; /* Night Graphite */
+    --accent: var(--brand-yellow);
+    --accent-foreground: var(--brand-black);
 
-    --destructive: 341 100% 68%; /* Digital Rose */
-    --destructive-foreground: 210 33% 93%; /* Silver White */
+    --destructive: 350 90% 62%; /* Crimson Alert */
+    --destructive-foreground: 220 20% 94%; /* Stellar White */
 
-    --border: 213 19% 25%; /* Dark Border (lighter than card) */
-    --input: 213 19% 25%; /* Dark Input */
-    --ring: 195 100% 60%; /* Brighter Electric Blue for ring */
+    --border: 220 10% 88%;
+    --input: 220 10% 88%;
+    --ring: var(--brand-blue);
 
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-1: var(--brand-blue);
+    --chart-2: var(--brand-yellow);
+    --chart-3: 0 0% 70%;
+    --chart-4: 220 14% 8%;
+    --chart-5: 0 0% 35%;
 
-    --sidebar-background: 210 39% 8%;   /* Night Graphite (same as main background) */
-    --sidebar-foreground: 210 33% 93%; /* Silver White */
-    --sidebar-primary: 195 100% 50%;    /* Electric Blue */
-    --sidebar-primary-foreground: 210 39% 8%; /* Night Graphite */
-    --sidebar-accent: 195 100% 20%; /* Darker, muted Electric Blue for sidebar item hover/active */
-    --sidebar-accent-foreground: 195 100% 85%; /* Light Electric Blue text for sidebar accent */
-    --sidebar-border: 213 19% 25%;      /* Dark Border */
-    --sidebar-ring: 195 100% 60%;       /* Brighter Electric Blue for ring */
+    --sidebar-background: var(--brand-white);
+    --sidebar-foreground: var(--brand-black);
+    --sidebar-primary: var(--brand-blue);
+    --sidebar-primary-foreground: var(--brand-black);
+    --sidebar-accent: var(--brand-light-gray);
+    --sidebar-accent-foreground: var(--brand-black);
+    --sidebar-border: 220 10% 88%;
+    --sidebar-ring: var(--brand-blue);
   }
 
 
@@ -155,6 +161,200 @@ body {
   }
 }
 
+/* ==========================================================================
+   HOME PAGE — Estilos de todas las secciones
+   ========================================================================== */
 
+:root {
+  --home-grid-size: 72px;
+  --home-card-height: 440px;
+  --home-card-height-sm: 500px;
+  --home-card-height-xl: 560px;
+  --home-card-radius: 1rem;
+  --home-card-border: hsl(var(--border));
+}
 
+/* --- Stats --- */
+.home-stats-section {
+  background:#000000;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 
+/* --- Portfolio --- */
+.home-portfolio-section {
+  position: relative;
+  overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #fdfeff;
+}
+
+.home-portfolio-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.home-portfolio-glow {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.home-portfolio-glow--violet {
+  bottom: 10%;
+  right: 5%;
+  height: 420px;
+  width: 420px;
+  background: radial-gradient(ellipse, hsl(var(--brand-blue) / 0.12), transparent 70%);
+  filter: blur(90px);
+}
+.home-portfolio-glow--left {
+  bottom: 20%;
+  left: 5%;
+  height: 380px;
+  width: 380px;
+  background: radial-gradient(ellipse, hsl(var(--brand-yellow) / 0.08), transparent 70%);
+  filter: blur(90px);
+}
+
+.home-portfolio-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  pointer-events: none;
+  z-index: 1;
+}
+.home-portfolio-fade--top {
+  top: 0;
+  background: linear-gradient(to bottom, hsl(var(--brand-light-gray)), transparent);
+}
+.home-portfolio-fade--bottom {
+  bottom: 0;
+  background: linear-gradient(to top, hsl(var(--brand-light-gray)), transparent);
+}
+
+.home-portfolio-card {
+  position: relative;
+  width: 100%;
+  height: var(--home-card-height);
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: var(--home-card-radius);
+  border: 1px solid var(--home-card-border);
+  background-color: hsl(var(--brand-white));
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+@media (min-width: 640px) {
+  .home-portfolio-card { height: var(--home-card-height-sm); }
+}
+@media (min-width: 1280px) {
+  .home-portfolio-card { height: var(--home-card-height-xl); }
+}
+.home-portfolio-card:hover,
+.home-portfolio-card:focus-visible {
+  border-color: hsl(var(--primary) / 0.7);
+  box-shadow: 0 8px 24px hsl(var(--primary) / 0.12);
+}
+.home-portfolio-card img {
+  object-fit: cover;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+}
+.home-portfolio-card:hover img,
+.home-portfolio-card:focus-visible img {
+  transform: scale(1.05);
+}
+
+.home-portfolio-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.12), transparent);
+  transition: background 0.3s ease;
+}
+.home-portfolio-card:hover .home-portfolio-card-overlay,
+.home-portfolio-card:focus-visible .home-portfolio-card-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0.18), transparent);
+}
+
+.home-portfolio-card-title-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem;
+}
+@media (min-width: 640px) {
+  .home-portfolio-card-title-wrap { padding: 1.5rem; }
+}
+.home-portfolio-card-title {
+  color: hsl(var(--brand-white));
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.375;
+  transition: color 0.3s ease;
+}
+@media (min-width: 640px) {
+  .home-portfolio-card-title { font-size: 1.25rem; }
+}
+.home-portfolio-card:hover .home-portfolio-card-title,
+.home-portfolio-card:focus-visible .home-portfolio-card-title {
+  color: hsl(var(--brand-yellow));
+}
+
+.home-portfolio-empty {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  font-size: 1.125rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.home-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--border));
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: hsl(var(--foreground) / 0.72);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (min-width: 640px) {
+  .home-filter-btn { padding: 0.5rem 1.5rem; font-size: 1rem; }
+}
+.home-filter-btn:hover {
+  background-color: hsl(var(--brand-light-gray));
+  color: hsl(var(--brand-black));
+}
+.home-filter-btn--active,
+.home-filter-btn--active:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: transparent;
+}
+
+/* --- Services --- */
+.home-services-section {
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+}
+
+.home-services-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-size: 56px 56px;
+
+}
+
+/* --- Footer --- */
+.home-footer-dark {
+  background-color:#000000;
+}

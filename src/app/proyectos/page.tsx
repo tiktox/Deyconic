@@ -1,197 +1,140 @@
 "use client";
-import React from "react";
+
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Image from "next/image";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Eye, ArrowRight, Check, Search } from "lucide-react";
-import PortfolioDetailModal, { type PortfolioItem } from "@/components/modals/portfolio-detail-modal";
-import { motion, AnimatePresence } from "framer-motion";
-
-// Reutilizamos los datos del portafolio
-const portfolioData: PortfolioItem[] = [
-  {
-    id: "1",
-    title: "Clínica Dental",
-    category: "Digitalización",
-    client: "Clínica Dental XYZ",
-    date: "2024",
-    description: "Desarrollo de una plataforma web completa para una clínica dental, incluyendo sistema de citas online, gestión de pacientes y marketing digital.",
-    features: ["Sistema de reservas online", "Portal de pacientes", "Optimización SEO local", "Diseño web responsive"],
-    mainImage: "https://ik.imagekit.io/ajkl5a98u/clinica%20dental%201.jpg?updatedAt=1746197438549",
-    thumbnails: [
-      "https://ik.imagekit.io/ajkl5a98u/clinica%20dental%201.jpg?updatedAt=1746197438549",
-      "https://ik.imagekit.io/ajkl5a98u/clinica%20dental%202.jpg?updatedAt=1746197442037",
-      "https://ik.imagekit.io/ajkl5a98u/clinica%20dental%203.jpg?updatedAt=1746197442723",
-    ],
-    projectLink: "https://clinica-dental01.web.app/",
-    aiHint: "dental clinic website"
-  },
-  {
-    id: "2",
-    title: "Restaurante Mr Grilled",
-    category: "Digitalización",
-    client: "Mr. Grilled Hotelería",
-    date: "2023",
-    description: "Automatización de procesos internos y gestión de proyectos para una cadena hotelera, mejorando la eficiencia operativa.",
-    features: ["Software de gestión de tareas", "Integración de sistemas", "Dashboard de KPIs", "Optimización de flujos de trabajo"],
-    mainImage: "https://ik.imagekit.io/ajkl5a98u/mr%20grilled%201.jpg?updatedAt=1746197443058",
-    thumbnails: [
-      "https://ik.imagekit.io/ajkl5a98u/mr%20grilled%201.jpg?updatedAt=1746197443058",
-      "https://ik.imagekit.io/ajkl5a98u/mr%20grilled%202.jpg?updatedAt=1746197442745",
-      "https://ik.imagekit.io/ajkl5a98u/mr%20grilled%203.jpg?updatedAt=1746197443843",
-    ],
-    projectLink: "https://tiktox.github.io/Mr-Grilled/",
-    aiHint: "hotel management software"
-  },
-  {
-    id: "3",
-    title: "Deyconic Store",
-    category: "Digitalización",
-    client: "Startup Tecnológica Local",
-    date: "2024",
-    description: "Desarrollo de un marketplace innovador para una startup, conectando proveedores y consumidores de productos tecnológicos.",
-    features: ["Plataforma e-commerce", "Sistema de pagos seguro", "Perfiles de usuario avanzados", "Panel de administración"],
-    mainImage: "https://ik.imagekit.io/ajkl5a98u/deyconic%20store.jpg?updatedAt=1746197440975",
-    thumbnails: [
-      "https://ik.imagekit.io/ajkl5a98u/deyconic%20store.jpg?updatedAt=1746197440975",
-      "https://ik.imagekit.io/ajkl5a98u/deyconic%20store%202.jpg?updatedAt=1746197440948",
-      "https://ik.imagekit.io/ajkl5a98u/STORE%204.jpg?updatedAt=1746316452904",
-    ],
-    projectLink: "https://tiktox.github.io/xmchat/",
-    aiHint: "e-commerce marketplace"
-  },
-  {
-    id: "4",
-    title: "Prime legacy ring",
-    category: "Proyectos de inversión",
-    client: "Startup Tecnológicak Local",
-    date: "2024",
-    description: "Es un anillo inteligente con tecnología avanzada integrada que formará parte de cada uno de nuestros clientes brindando seguridad, estatus y exclusividad.",
-    features: ["Seguridad", "Innovación", "Tecnologia", "Exclusividad"],
-    mainImage: "https://ik.imagekit.io/lics6cm47/1.jpg?updatedAt=1751379755829",
-    thumbnails: [
-      "https://ik.imagekit.io/ajkl5a98u/026df623214f3060da63ee053f2be7b6.jpg?updatedAt=1751383904721",
-      "https://ik.imagekit.io/ajkl5a98u/6f5e04d875cb07b4c27a099fc0d95807.jpg?updatedAt=1751383771610",
-      "https://ik.imagekit.io/ajkl5a98u/fb6a1a4dfaa331e7e1c396a6bffbf845.jpg?updatedAt=1751383663861",
-    ],
-    projectLink: "#",
-    aiHint: "e-commerce marketplacee"
-  },
-   {
-    id: "5",
-    title: "TACONAZO",
-    category: "DIGITALIZACION - RESTAURANTE",
-    client: "RESTAURANTE TACONAZO",
-    date: "2024",
-    description: "Desarrollo de una plataforma web completa para un restaurante, incluyendo sistema de pedidos online, gestión de clientes y marketing digital.",
-    features: ["Seguridad", "Innovación", "Tecnologia", "Exclusividad"],
-    mainImage: "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070327.jpg?updatedAt=1762369748928",
-    thumbnails: [
-      "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070404.jpg?updatedAt=1762369748901",
-      "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070434.jpg?updatedAt=1762369749756",
-      "https://ik.imagekit.io/lics6cm47/Captura%20de%20pantalla%202025-11-05%20070501.jpg?updatedAt=1762369749028",
-    ],
-    projectLink: "https://taconazo.vercel.app",
-    aiHint: "e-commerce plate"
-  },
-];
-
-const filters = ["Digitalización", "Proyectos de inversión", "Diseño"];
+import Link from "next/link";
+import { useMemo, useState } from "react";
+import { ArrowUpRight, Search } from "lucide-react";
+import {
+  portfolioCategories,
+  portfolioProjects,
+  type PortfolioCategory,
+} from "@/lib/portfolio-data";
 
 export default function ProyectosPage() {
-  const [activeFilter, setActiveFilter] = useState("Digitalización");
+  const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("all");
   const [search, setSearch] = useState("");
-  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Filtrado por nombre y categoría
-  const filteredItems = portfolioData.filter(item => {
-    const matchesFilter = activeFilter === filters[0] || item.category.toLowerCase() === activeFilter.toLowerCase();
-    const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase());
-    return matchesFilter && matchesSearch;
-  });
+  const visibleProjects = useMemo(() => {
+    const query = search.trim().toLocaleLowerCase();
+    return portfolioProjects.filter((project) => {
+      const matchesCategory = activeCategory === "all" || project.category === activeCategory;
+      const matchesSearch = !query
+        || project.title.toLocaleLowerCase().includes(query)
+        || project.client.toLocaleLowerCase().includes(query);
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeCategory, search]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-secondary">
+    <div className="flex min-h-screen flex-col bg-[#0077ff] text-foreground">
       <Header />
-      <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-10">
-        {/* Buscador */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mb-8">
-          <div className="relative w-full sm:w-1/2">
-            <input
-              type="text"
-              placeholder="Buscar proyectos"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="w-full rounded-full py-2 px-4 pl-10 bg-background text-foreground border border-border focus:ring-2 focus:ring-primary outline-none transition-all"
-            />
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+      <main className="relative flex-1 overflow-hidden px-4 pb-20 pt-32 sm:px-6 sm:pt-36">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.12),transparent_65%)]"
+        />
+        <div className="relative mx-auto max-w-7xl">
+          <header className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Explora las soluciones digitales que hemos desarrollado para nuestros clientes.
+            </p>
+          </header>
+
+          <div className="mb-7 flex justify-center sm:mb-9">
+            <label className="relative block w-full max-w-md">
+              <span className="sr-only">Buscar proyectos</span>
+              <Search
+                aria-hidden="true"
+                className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
+              />
+              <input
+                type="search"
+                placeholder="Buscar proyectos"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                className="h-12 w-full rounded-full border border-input bg-card pl-11 pr-5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+              />
+            </label>
           </div>
-          <div className="flex gap-2 mt-2 sm:mt-0">
-            {filters.map(filter => (
-              <Button
-                key={filter}
-                variant={activeFilter === filter ? "default" : "outline"}
-                onClick={() => setActiveFilter(filter)}
-                className="rounded-full px-4 py-2 text-sm"
-              >
-                {activeFilter === filter && <Check className="mr-2 h-4 w-4 animate-pulse" />}
-                {filter}
-              </Button>
-            ))}
-          </div>
-        </div>
-        {/* Grilla de proyectos */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          <AnimatePresence mode="wait">
-            {filteredItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8, y: 50 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8, y: -50 }}
-                transition={{ type: "spring", stiffness: 260, damping: 20, delay: index * 0.05, layout: { duration: 0.3 } }}
-                className="cursor-pointer"
-              >
-                <Card onClick={() => { setSelectedItem(item); setIsModalOpen(true); }} className="overflow-hidden group h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 rounded-xl hover:border-primary border-2 border-transparent min-h-[380px] sm:min-h-[400px]">
-                  <div className="relative h-52 sm:h-60 w-full overflow-hidden">
+
+          <nav
+            aria-label="Categorías de proyectos"
+            className="mb-9 flex flex-wrap items-center justify-center gap-2 sm:mb-12 sm:gap-3"
+          >
+            {portfolioCategories.map((category) => {
+              const isActive = activeCategory === category.id;
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  aria-pressed={isActive}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`rounded-full border px-4 py-2.5 text-[11px] font-semibold tracking-[0.12em] transition-colors sm:px-6 sm:text-xs ${
+                    category.id === "all"
+                      ? "border-border px-5 text-sm font-extrabold tracking-[0.16em] sm:px-8 sm:text-base"
+                      : ""
+                  } ${
+                    isActive
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:bg-muted hover:text-foreground"
+                  }`}
+                >
+                  {category.label}
+                </button>
+              );
+            })}
+          </nav>
+
+          {visibleProjects.length > 0 ? (
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
+              {visibleProjects.map((project) => (
+                <Link
+                  key={project.id}
+                  href={`/proyectos/${project.slug}`}
+                  aria-label={`Ver detalles de ${project.title}`}
+                  className="group block rounded-2xl border border-white/10 bg-black p-2.5 shadow-sm transition-colors hover:border-primary/50 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:p-3"
+                >
+                  <div className="relative aspect-[1.38/1] overflow-hidden rounded-xl bg-muted">
                     <Image
-                      src={item.mainImage}
-                      alt={item.title}
+                      src={`${project.mainImage}&tr=w-1000,h-720,q-80,f-webp,c-at_max`}
+                      alt={`Vista previa del proyecto ${project.title}`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      loading="lazy"
-                      quality={75}
-                      className="transform group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      quality={80}
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <Eye className="h-12 w-12 text-white/90 transform group-hover:scale-110 transition-transform duration-300" />
-                    </div>
-                    <div className="absolute top-3 right-3 bg-primary/80 backdrop-blur-sm text-primary-foreground px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">
-                      {item.category}
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-100" />
+                    <span className="absolute left-4 top-4 rounded-full border border-primary/40 bg-black/55 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary backdrop-blur-md">
+                      {project.categoryLabel}
+                    </span>
+                    <span className="absolute bottom-4 right-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full bg-primary text-primary-foreground opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      <ArrowUpRight className="h-5 w-5" />
+                    </span>
                   </div>
-                  <CardContent className="p-5 flex-grow flex flex-col bg-background">
-                    <div className="flex-grow">
-                      <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3 mb-3">{item.description}</p>
+                  <div className="flex items-center justify-between gap-4 px-2 pb-2 pt-4 sm:px-3 sm:pb-3">
+                    <div>
+                      <h2 className="text-lg font-semibold text-white transition-colors group-hover:text-primary sm:text-xl">
+                        {project.title}
+                      </h2>
+                      <p className="mt-1 text-sm text-white/70">{project.client}</p>
                     </div>
-                    <Button variant="outline" size="sm" className="mt-auto self-start group/button hover:bg-primary hover:text-primary-foreground border-primary text-primary w-full sm:w-auto justify-center">
-                      Ver detalles <ArrowRight className="ml-2 h-4 w-4 group-hover/button:translate-x-1 transition-transform" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-        <PortfolioDetailModal item={selectedItem} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+                    <span className="shrink-0 text-xs font-medium tracking-wide text-white/55">
+                      {project.date}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="rounded-2xl border border-border bg-card px-5 py-16 text-center text-sm text-muted-foreground">
+              No encontramos proyectos en esta categoría. Prueba otra categoría o búsqueda.
+            </p>
+          )}
+        </div>
       </main>
       <Footer />
     </div>
   );
-} 
+}

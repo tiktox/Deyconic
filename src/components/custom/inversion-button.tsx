@@ -8,9 +8,9 @@ import { motion, useAnimation, AnimatePresence, type Variants } from "framer-mot
 // InvestmentModal is imported by the wrapper, not directly here.
 
 const LONG_PRESS_DURATION = 2000; // 2 seconds
-const ELECTRIC_BLUE = "hsl(var(--primary))"; 
-const NEON_MINT_COLOR = "#2EF2AF";
-const DEEP_BLUE_SHOCKWAVE_COLOR = "hsl(var(--primary) / 0.7)";
+const BUBBLEGUM_BLUE = "#5CB8DD";
+const ACCENT_YELLOW = "#FFD43B";
+const BLUE_SHOCKWAVE_COLOR = "rgba(92, 184, 221, 0.7)";
 
 const PARTICLE_COUNT = 3; 
 const LIGHTNING_COUNT = 2; 
@@ -38,7 +38,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
   const [showHelpTooltip, setShowHelpTooltip] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const [currentHaloColor, setCurrentHaloColor] = useState(ELECTRIC_BLUE);
+  const [currentHaloColor, setCurrentHaloColor] = useState(BUBBLEGUM_BLUE);
 
   const [particles, setParticles] = useState<ParticleState[]>([]);
   const [lightningStreaks, setLightningStreaks] = useState<LightningState[]>([]);
@@ -108,8 +108,8 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
         haloControls.start({ 
           scale: 1, 
           opacity: 0.2, 
-          backgroundColor: ELECTRIC_BLUE, 
-          boxShadow: `0 0 10px 2px ${ELECTRIC_BLUE}33`, 
+          backgroundColor: BUBBLEGUM_BLUE,
+          boxShadow: `0 0 10px 2px ${BUBBLEGUM_BLUE}33`,
           transition: { duration: 0 }
         });
         shadowControls.start({ 
@@ -123,7 +123,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
 
     const animateCycle = () => {
       setCurrentHaloColor(prevHaloColor => {
-        const nextColor = prevHaloColor === ELECTRIC_BLUE ? NEON_MINT_COLOR : ELECTRIC_BLUE;
+        const nextColor = prevHaloColor === BUBBLEGUM_BLUE ? ACCENT_YELLOW : BUBBLEGUM_BLUE;
         
         // Simplified animations with reduced complexity
         haloControls.start({
@@ -319,7 +319,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
     // Restart idle animation cycle
     const animateCycle = () => {
       setCurrentHaloColor(prevHaloColor => {
-        const nextColor = prevHaloColor === ELECTRIC_BLUE ? NEON_MINT_COLOR : ELECTRIC_BLUE;
+        const nextColor = prevHaloColor === BUBBLEGUM_BLUE ? ACCENT_YELLOW : BUBBLEGUM_BLUE;
         haloControls.start({
           scale: [1, 1.3, 1], opacity: [0.1, 0.5, 0.1], backgroundColor: nextColor,
           boxShadow: [`0 0 15px 3px ${nextColor}4D`, `0 0 25px 8px ${nextColor}80`, `0 0 15px 3px ${nextColor}4D`],
@@ -420,7 +420,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
                             cx={50 + 35 * p.radiusFactor * Math.cos(p.angle * Math.PI / 180)} 
                             cy={50 + 35 * p.radiusFactor * Math.sin(p.angle * Math.PI / 180)}
                             r={p.size}
-                            fill={ELECTRIC_BLUE}
+                            fill={BUBBLEGUM_BLUE}
                             initial={{ opacity: 0, scale: 0 }}
                             animate={individualParticleControls}
                         />
@@ -437,7 +437,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
                             x1="50" y1="50"
                             x2={50 + 40 * l.lengthFactor * Math.cos(l.angle * Math.PI / 180)}
                             y2={50 + 40 * l.lengthFactor * Math.sin(l.angle * Math.PI / 180)}
-                            stroke={NEON_MINT_COLOR}
+                            stroke={ACCENT_YELLOW}
                             strokeWidth="0.8"
                             strokeLinecap="round"
                             initial={{ opacity: 0 }}
@@ -450,7 +450,7 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
             {!prefersReducedMotion && (
                 <motion.circle
                     cx="50" cy="50" r="25" 
-                    fill={DEEP_BLUE_SHOCKWAVE_COLOR}
+                    fill={BLUE_SHOCKWAVE_COLOR}
                     stroke="hsl(var(--primary))"
                     strokeWidth="1"
                     initial={{ scale: 0, opacity: 0 }}
@@ -520,4 +520,3 @@ export default function InversionButton({ onOpenModal }: InversionButtonProps) {
  * Props:
  * - onOpenModal: () => void; // Callback invoked when the long press successfully completes.
  */
-

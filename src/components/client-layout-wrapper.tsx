@@ -39,7 +39,7 @@ export default function ClientLayoutWrapper({
         {children}
         <Toaster />
 
-        {!pathname.startsWith('/plus') && (
+        {!pathname.startsWith('/plus') && pathname !== '/' && (
           <>
             <InvestmentFabWrapper />
             <ServiceRequestFabWrapper />

@@ -1,24 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle, SheetHeader } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { motion } from "framer-motion";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { DeyconicLogo } from "@/components/icons/deyconic-logo";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
-  { href: "#hero", label: "Inicio" },
-  { href: "#sobre-nosotros", label: "Nosotros" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#proyectos", label: "Proyectos" },
-  { href: "#noticias", label: "Noticias" },
-  { href: "#actualizaciones", label: "Actualizaciones" },
-  // { href: "#preguntas", label: "Preguntas" }, // Temporarily removed for space, can be re-added
-  // { href: "#inversion", label: "Inversión" }, // Temporarily removed for space
+  { href: "#proyectos", label: "PROYECTOS" },
+  { href: "#servicios", label: "SERVICIOS" },
+  { href: "#hero", label: "DEYCONIC", brand: true },
+  { href: "/plus/login", label: "INVERTIR" },
+  { href: "/plus/login", label: "DEYCONIC PLUS" },
 ];
 
 const originalLightLogoUrl = "https://ik.imagekit.io/ajkl5a98u/logo_1000x1000-removebg-preview.png?updatedAt=1746469003137";
@@ -30,165 +26,126 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Función para manejar la navegación y el scroll
-  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (href === "/proyectos") {
-      router.push("/proyectos");
+  const handleNavClick = (href: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!href.startsWith("#")) return;
+
+    event.preventDefault();
+    const targetId = href.slice(1);
+    if (pathname === "/") {
+      const target = document.getElementById(targetId);
+      if (target) {
+        window.scrollTo({ top: target.offsetTop - 70, behavior: "smooth" });
+      }
       return;
     }
-    const isHome = pathname === "/";
-    const targetId = href.substring(1);
-    if (isHome) {
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 70, // Ajusta el offset según el header
-          behavior: "smooth",
-        });
+
+    router.push(`/${href}`);
+    window.setTimeout(() => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        window.scrollTo({ top: target.offsetTop - 70, behavior: "smooth" });
       }
-    } else {
-      router.push(`/${href}`);
-      setTimeout(() => {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: "smooth",
-          });
-        }
-      }, 500); // Espera a que cargue la página
-    }
+    }, 500);
   };
+
+  const logo = (
+    <Link href="/" className="flex items-center" aria-label="Deyconic, inicio">
+      <DeyconicLogo
+        lightLogoUrl={isScrolled ? originalLightLogoUrl : originalDarkLogoUrl}
+        darkLogoUrl={originalDarkLogoUrl}
+        width={40}
+        height={40}
+      />
+    </Link>
+  );
+
+  const contactButton = (
+    <Button
+      asChild
+      className="h-9 rounded-full bg-white px-4 text-[11px] font-bold text-black hover:bg-white/90 sm:h-10 sm:px-6 sm:text-xs xl:px-7 xl:text-sm"
+    >
+      <Link href="#contacto">CONTACTO</Link>
+    </Button>
+  );
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 shadow-lg backdrop-blur-md" : "bg-transparent"
+      className={`fixed left-0 right-0 top-0 z-50 transition-colors duration-300 ${
+        isScrolled ? "bg-[#000000] shadow-lg backdrop-blur-md" : "bg-transparent"
       }`}
-      initial={{ y: -100 }}
+      initial={false}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 50 }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          <Link href="/" className={`text-3xl font-bold flex items-center ${
-            isScrolled ? 'text-primary' : 'text-white'
-          }`}>
-            <DeyconicLogo 
-              lightLogoUrl={isScrolled ? originalLightLogoUrl : originalDarkLogoUrl}
-              darkLogoUrl={originalDarkLogoUrl}
-              className="mr-0" 
-              width={40}
-              height={40}
-            />
-          </Link>
+      <div className="relative mx-auto w-full pl-4 pr-3 sm:pl-6 sm:pr-4 lg:pl-10 lg:pr-[12px]">
+        <div className="flex h-16 items-center justify-between">
+          {logo}
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-1">
+          <nav
+            aria-label="Navegación principal"
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-3 lg:left-[calc(50%+12px)] lg:flex xl:gap-8 2xl:gap-12"
+          >
             {navLinks.map((link) => (
-              <Link 
-                key={link.label} 
+              <Link
+                key={link.label}
                 href={link.href}
-                className={`px-2.5 py-2 text-xs xl:text-sm xl:px-3 transition-colors hover:text-primary hover:bg-primary/10 ${
-                  isScrolled ? 'text-foreground' : 'text-white'
-                }`}
                 onClick={handleNavClick(link.href)}
+                className={`whitespace-nowrap font-semibold transition-colors hover:text-primary ${
+                  isScrolled ? "text-white" : "text-white"
+                } ${link.brand ? "text-lg font-extrabold xl:text-2xl 2xl:text-[26px]" : "text-[10px] lg:text-[11px] xl:text-sm 2xl:text-base"}`}
               >
                 {link.label}
               </Link>
             ))}
-            <ThemeToggle className={isScrolled ? 'text-foreground' : 'text-white'} />
           </nav>
 
-          {/* Mobile Navigation */}
-          <div className="lg:hidden flex items-center">
-            <ThemeToggle />
+          <div className="hidden lg:block">{contactButton}</div>
+
+          <div className="flex items-center gap-2 lg:hidden">
+            {contactButton}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={isScrolled ? '' : 'text-white'}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className={isScrolled ? "text-white" : "text-white hover:bg-white/10"}
+                  aria-label="Abrir menú"
+                >
                   <Menu className="h-6 w-6" />
-                  <span className="sr-only">Abrir menú</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background p-0 flex flex-col">
-                 <SheetHeader className="p-6 border-b border-border flex-shrink-0">
-                    <SheetTitle> 
-                         <Link href="/" className="text-2xl font-bold text-primary flex items-center" onClick={() => {
-                           const closeButton = document.querySelector('[data-radix-dialog-close]');
-                           if (closeButton instanceof HTMLElement) {
-                            closeButton.click();
-                           }
-                         }}>
-                            <DeyconicLogo 
-                                lightLogoUrl={isScrolled ? originalLightLogoUrl : originalDarkLogoUrl}
-                                darkLogoUrl={originalDarkLogoUrl}
-                                className="mr-0" 
-                                width={32} 
-                                height={32} 
-                            />
-                        </Link>
-                    </SheetTitle>
+              <SheetContent side="right" className="flex w-[300px] flex-col bg-white p-0 sm:w-[400px]">
+                <SheetHeader className="border-b border-border p-6">
+                  <SheetTitle>{logo}</SheetTitle>
                 </SheetHeader>
-                 <div className="flex-1 overflow-y-auto p-6">
-                  <nav className="flex flex-col space-y-2">
-                    {navLinks.map((link) => (
-                      <SheetClose key={link.label} asChild>
-                        <Link
-                          href={link.href}
-                          className="block py-2.5 px-3 rounded-md text-lg font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
-                          onClick={handleNavClick(link.href)}
-                        >
-                          {link.label}
-                        </Link>
-                      </SheetClose>
-                    ))}
-                    {/* Re-add other links for mobile if desired */}
-                     <SheetClose asChild>
-                        <Link href="#preguntas" className="block py-2.5 px-3 rounded-md text-lg font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
-                           onClick={(e) => {
-                            e.preventDefault();
-                            const targetId = "preguntas";
-                            const targetElement = document.getElementById(targetId);
-                            if (targetElement) {
-                              window.scrollTo({
-                                top: targetElement.offsetTop,
-                                behavior: "smooth",
-                              });
-                            } else {
-                              // Fallback for sections not in navLinks array
-                              window.location.href = e.currentTarget.href;
-                            }
-                           }}
-                        >Preguntas</Link>
-                      </SheetClose>
-                      <SheetClose asChild>
-                        <Link href="#inversion" className="block py-2.5 px-3 rounded-md text-lg font-medium text-foreground hover:bg-muted hover:text-primary transition-colors"
-                           onClick={(e) => {
-                            e.preventDefault();
-                            const targetId = "inversion";
-                             const targetElement = document.getElementById(targetId);
-                            if (targetElement) {
-                              window.scrollTo({
-                                top: targetElement.offsetTop,
-                                behavior: "smooth",
-                              });
-                            } else {
-                              // Fallback for sections not in navLinks array
-                              window.location.href = e.currentTarget.href;
-                            }
-                           }}
-                        >Inversión</Link>
-                      </SheetClose>
-                  </nav>
-                </div>
+                <nav aria-label="Navegación móvil" className="flex flex-col gap-1 p-6">
+                  {navLinks.map((link) => (
+                    <SheetClose key={link.label} asChild>
+                      <Link
+                        href={link.href}
+                        onClick={handleNavClick(link.href)}
+                        className={`rounded-md px-3 py-3 font-semibold text-foreground transition-colors hover:bg-muted hover:text-primary ${
+                          link.brand ? "text-xl font-extrabold" : "text-base"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                  <SheetClose asChild>
+                    <Link
+                      href="#contacto"
+                      className="rounded-md bg-primary px-3 py-3 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                    >
+                      CONTACTO
+                    </Link>
+                  </SheetClose>
+                </nav>
               </SheetContent>
             </Sheet>
           </div>
@@ -197,4 +154,3 @@ export default function Header() {
     </motion.header>
   );
 }
-

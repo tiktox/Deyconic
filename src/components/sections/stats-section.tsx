@@ -32,7 +32,7 @@ const cardVariants = {
 
 export default function StatsSection() {
   return (
-    <section className="py-12 bg-secondary">
+    <section className="home-stats-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {statsData.map((stat, index) => (
@@ -42,11 +42,11 @@ export default function StatsSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
-              className="bg-background p-4 rounded-lg shadow-md text-center flex flex-col items-center hover:shadow-lg transition-shadow duration-200"
+              className="bg-[#101010] border border-black p-4 rounded-lg shadow-md text-center flex flex-col items-center hover:shadow-lg transition-shadow duration-200"
             >
               <div className="mb-2">{stat.icon}</div>
               <AnimatedCounter to={stat.count} className="text-2xl font-bold text-primary mb-1" />
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <p className="text-sm text-white/75">{stat.label}</p>
             </motion.div>
           ))}
         </div>

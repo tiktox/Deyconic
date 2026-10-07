@@ -59,8 +59,10 @@ const cardVariants = {
 
 export default function ServicesSection() {
   return (
-    <section id="servicios" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="servicios" className="home-services-section py-20">
+      <div className="home-services-grid-bg" aria-hidden="true" />
+      <div className="home-services-glow" aria-hidden="true" />
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +70,7 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-foreground tracking-tight mb-4">
+          <h2 className="text-4xl font-bold text-white tracking-tight mb-4">
             Servicios que <span className="text-primary">Ofrecemos</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -85,13 +87,13 @@ export default function ServicesSection() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
             >
-              <Card className="h-full flex flex-col text-center items-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 rounded-lg">
+              <Card className="h-full flex flex-col text-center items-center hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 transform hover:-translate-y-1 rounded-lg bg-[#101010] border-white/10">
                 <CardHeader className="items-center pt-6">
                   {service.icon}
-                  <CardTitle className="text-xl font-semibold text-foreground">{service.title}</CardTitle>
+                  <CardTitle className="text-xl font-semibold text-white">{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="pb-6">
-                  <CardDescription className="text-muted-foreground leading-relaxed text-sm">
+                  <CardDescription className="text-white/70 leading-relaxed text-sm">
                     {service.description}
                   </CardDescription>
                 </CardContent>
