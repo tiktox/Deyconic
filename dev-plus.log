@@ -1,0 +1,27 @@
+
+> nextn@0.1.0 dev
+> next dev --turbopack -p 9002
+
+   ▲ Next.js 15.5.26 (Turbopack)
+   - Local:        http://localhost:9002
+   - Network:      http://10.0.0.7:9002
+   - Environments: .env.local
+   - Experiments (use with caution):
+     ✓ optimizeCss
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 24.4s
+ ○ Compiling /plus/login ...
+ ✓ Compiled /plus/login in 110.7s
+ GET /plus/login 200 in 2742ms
+ ○ Compiling /plus/dashboard ...
+ ✓ Compiled /plus/dashboard in 14.3s
+ GET /plus/dashboard 200 in 16083ms
+ ○ Compiling /api/plus/chat ...
+ ✓ Compiled /api/plus/chat in 3.9s
+ POST /api/plus/chat 401 in 5816ms
+ GET /plus/dashboard 200 in 1996ms
+ POST /api/plus/chat 200 in 4751ms
+ POST /api/plus/chat 200 in 7297ms
+[?25h
