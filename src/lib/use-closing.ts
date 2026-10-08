@@ -13,7 +13,7 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { plusAuth, plusDb } from "@/lib/firebase-plus";
+import { getPlusAuth, getPlusDb } from "@/lib/firebase-plus";
 import type { EmpresaData } from "@/lib/plus-types";
 import {
   parseAssistantContent,
@@ -146,7 +146,7 @@ export function useClosing(empresa: EmpresaData | null, uid: string | null) {
   uidRef.current = uid;
 
   const closingDocRef = useMemo(
-    () => (uid ? doc(plusDb, "cierres", uid, "diarios", dayRef.current) : null),
+    () => (uid ? doc(getPlusDb(), "cierres", uid, "diarios", dayRef.current) : null),
     [uid]
   );
 
@@ -231,7 +231,7 @@ export function useClosing(empresa: EmpresaData | null, uid: string | null) {
 
   // ── Llamada al backend con el historial actual ─────────────────────────────
   const callApi = useCallback(async (baseMsgs: ChatMessage[]): Promise<string> => {
-    const token = await plusAuth.currentUser?.getIdToken();
+    const token = await getPlusAuth().currentUser?.getIdToken();
     if (!token) throw new Error("Sesión expirada");
     const history = baseMsgs.slice(-30).map(({ role, content }) => ({ role, content }));
     const res = await fetch("/api/plus/chat", {
@@ -307,7 +307,7 @@ export function useClosing(empresa: EmpresaData | null, uid: string | null) {
         void persist(nextMsgs, "completed", summary);
         if (uidRef.current) {
           void setDoc(
-            doc(plusDb, "empresas", uidRef.current),
+            doc(getPlusDb(), "empresas", uidRef.current),
             { closingsCompleted: increment(1) },
             { merge: true }
           ).catch(() => {});
@@ -509,7 +509,7 @@ export function useClosing(empresa: EmpresaData | null, uid: string | null) {
       let lastSummary = "";
       try {
         const recentQ = query(
-          collection(plusDb, "cierres", uid, "diarios"),
+          collection(getPlusDb(), "cierres", uid, "diarios"),
           orderBy("createdAt", "desc"),
           limit(5)
         );
@@ -618,7 +618,7 @@ export function useClosing(empresa: EmpresaData | null, uid: string | null) {
 
 export async function fetchClosings(uid: string): Promise<ClosingDoc[]> {
   const q = query(
-    collection(plusDb, "cierres", uid, "diarios"),
+    collection(getPlusDb(), "cierres", uid, "diarios"),
     orderBy("createdAt", "desc")
   );
   const snap = await getDocs(q);

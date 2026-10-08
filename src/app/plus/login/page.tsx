@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { plusAuth } from "@/lib/firebase-plus";
+import { getPlusAuth } from "@/lib/firebase-plus";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,7 +22,7 @@ export default function LoginPage() {
     setError("");
     setLoading(true);
     try {
-      await signInWithEmailAndPassword(plusAuth, email, password);
+      await signInWithEmailAndPassword(getPlusAuth(), email, password);
       router.push("/plus/dashboard");
     } catch (err: unknown) {
       const code = (err as { code?: string }).code;

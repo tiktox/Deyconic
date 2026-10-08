@@ -1,4 +1,4 @@
-import { initializeApp, getApps, getApp, type FirebaseApp } from "firebase/app";
+import { initializeApp, getApps, type FirebaseApp } from "firebase/app";
 import { getAuth, type Auth } from "firebase/auth";
 import { getFirestore, type Firestore } from "firebase/firestore";
 
@@ -14,9 +14,26 @@ const firebaseConfig = {
 
 const PLUS_APP_NAME = "deyconic-plus";
 
-const plusApp: FirebaseApp =
-  getApps().find((a) => a.name === PLUS_APP_NAME) ??
-  initializeApp(firebaseConfig, PLUS_APP_NAME);
+let plusApp: FirebaseApp | undefined;
 
-export const plusAuth: Auth = getAuth(plusApp);
-export const plusDb: Firestore = getFirestore(plusApp);
+function getPlusApp(): FirebaseApp {
+  if (typeof window === "undefined") {
+    throw new Error("Deyconic Plus Firebase can only be initialized in the browser.");
+  }
+
+  if (!plusApp) {
+    plusApp =
+      getApps().find((app) => app.name === PLUS_APP_NAME) ??
+      initializeApp(firebaseConfig, PLUS_APP_NAME);
+  }
+
+  return plusApp;
+}
+
+export function getPlusAuth(): Auth {
+  return getAuth(getPlusApp());
+}
+
+export function getPlusDb(): Firestore {
+  return getFirestore(getPlusApp());
+}

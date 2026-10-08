@@ -12,7 +12,7 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
-import { plusAuth, plusDb } from "@/lib/firebase-plus";
+import { getPlusAuth, getPlusDb } from "@/lib/firebase-plus";
 import { usePlusContext } from "@/lib/plus-context";
 import {
   useClosing,
@@ -82,7 +82,7 @@ export default function PlusDashboardPage() {
     if (!uid) return;
     try {
       const q = query(
-        collection(plusDb, "metas", uid, "items"),
+        collection(getPlusDb(), "metas", uid, "items"),
         orderBy("createdAt", "desc")
       );
       const snap = await getDocs(q);
@@ -118,7 +118,7 @@ export default function PlusDashboardPage() {
       setViewingClosing(meta ? { id, summary: meta.summary, createdAt: meta.createdAt } : { id, createdAt: Date.now() });
       setViewingMessages(null);
       try {
-        const snap = await getDoc(doc(plusDb, "cierres", uid, "diarios", id));
+        const snap = await getDoc(doc(getPlusDb(), "cierres", uid, "diarios", id));
         if (snap.exists()) {
           const msgs = (snap.data().messages as ChatMessage[] | undefined) ?? [];
           setViewingMessages(msgs.filter((m) => !m.auto));
@@ -137,7 +137,7 @@ export default function PlusDashboardPage() {
     if (!uid || !goalTitle.trim()) return;
     setSavingGoal(true);
     try {
-      await addDoc(collection(plusDb, "metas", uid, "items"), {
+      await addDoc(collection(getPlusDb(), "metas", uid, "items"), {
         title: goalTitle.trim(),
         description: goalDesc.trim(),
         status: "pending",
@@ -376,7 +376,7 @@ export default function PlusDashboardPage() {
             <Button
               variant="outline"
               onClick={() => {
-                void signOut(plusAuth).then(() => router.push("/plus/login"));
+                void signOut(getPlusAuth()).then(() => router.push("/plus/login"));
               }}
               className="w-full border-white/15 text-white hover:bg-white/10 hover:text-white"
             >

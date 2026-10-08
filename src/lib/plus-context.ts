@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { plusAuth, plusDb } from "@/lib/firebase-plus";
+import { getPlusAuth, getPlusDb } from "@/lib/firebase-plus";
 import type { EmpresaData } from "@/lib/plus-types";
 
 export type { EmpresaData } from "@/lib/plus-types";
@@ -14,7 +14,7 @@ export function usePlusContext() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(plusAuth, async (user) => {
+    const unsub = onAuthStateChanged(getPlusAuth(), async (user) => {
       if (!user) {
         setUid(null);
         setEmpresa(null);
@@ -23,7 +23,7 @@ export function usePlusContext() {
       }
       setUid(user.uid);
       try {
-        const snap = await getDoc(doc(plusDb, "empresas", user.uid));
+        const snap = await getDoc(doc(getPlusDb(), "empresas", user.uid));
         if (snap.exists()) setEmpresa(snap.data() as EmpresaData);
       } finally {
         setLoading(false);

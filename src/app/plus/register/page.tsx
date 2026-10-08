@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { plusAuth, plusDb } from "@/lib/firebase-plus";
+import { getPlusAuth, getPlusDb } from "@/lib/firebase-plus";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -404,13 +404,13 @@ export default function RegisterPage() {
     setLoading(true);
     setError("");
     try {
-      const credential = await createUserWithEmailAndPassword(plusAuth, data.email, data.password);
+      const credential = await createUserWithEmailAndPassword(getPlusAuth(), data.email, data.password);
       await updateProfile(credential.user, { displayName: data.name });
       const { password: _p, confirm: _c, acceptTerms: _t, acceptPrivacy: _pr, acceptDataProcessing: _d, confirmAuthority: _a, ...safeData } = data;
       if (safeData.positionOther) safeData.position = safeData.positionOther;
       if (safeData.authorityLevelOther) safeData.authorityLevel = [...safeData.authorityLevel.filter((x) => x !== "Otra"), safeData.authorityLevelOther];
       if (safeData.prioritiesOther) safeData.priorities = [...safeData.priorities.filter((x) => x !== "Otra"), safeData.prioritiesOther];
-      await setDoc(doc(plusDb, "empresas", credential.user.uid), {
+      await setDoc(doc(getPlusDb(), "empresas", credential.user.uid), {
         ...safeData,
         uid: credential.user.uid,
         createdAt: new Date().toISOString(),
