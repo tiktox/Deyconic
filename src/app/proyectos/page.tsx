@@ -94,36 +94,68 @@ export default function ProyectosPage() {
                   key={project.id}
                   href={`/proyectos/${project.slug}`}
                   aria-label={`Ver detalles de ${project.title}`}
-                  className="group block rounded-2xl border border-white/10 bg-black p-2.5 shadow-sm transition-colors hover:border-primary/50 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:p-3"
+                  className={`group -left-[10px] block rounded-2xl border border-white/10 p-2.5 shadow-sm transition-colors hover:border-primary/50 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:p-3 ${
+                    project.mobileImages ? "bg-white text-black" : ""
+                  }`}
                 >
-                  <div className="relative aspect-[1.38/1] overflow-hidden rounded-xl bg-muted">
-                    <Image
-                      src={`${project.mainImage}&tr=w-1000,h-720,q-80,f-webp,c-at_max`}
-                      alt={`Vista previa del proyecto ${project.title}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      quality={80}
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-100" />
+                  {project.mobileImages && (
+                    <div className="px-2 pb-3 pt-1 text-center">
+                      <h2 className="text-lg font-semibold text-black transition-colors group-hover:text-primary sm:text-xl">
+                        {project.title}
+                      </h2>
+                      <p className="mt-1 text-sm text-black/70">{project.client}</p>
+                    </div>
+                  )}
+                  <div className={`relative overflow-hidden ${project.mobileImages ? "mx-auto aspect-[9/16] max-w-[260px]" : "aspect-[1.38/1]"}`}>
+                    {project.mobileImages ? (
+                      <Image
+                        src={project.mobileImages[0]}
+                        alt={`Vista previa vertical de ${project.title}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        quality={80}
+                        className=" transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                    ) : project.mainImage ? (
+                      <>
+                        <Image
+                          src={`${project.mainImage}&tr=w-1000,h-720,q-80,f-webp,c-at_max`}
+                          alt={`Vista previa del proyecto ${project.title}`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                          quality={80}
+                          className=" transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-100" />
+                      </>
+                    ) : null}
                     <span className="absolute left-4 top-4 rounded-full border border-primary/40 bg-black/55 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-primary backdrop-blur-md">
                       {project.categoryLabel}
                     </span>
-                    <span className="absolute bottom-4 right-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full bg-primary text-primary-foreground opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                      <ArrowUpRight className="h-5 w-5" />
-                    </span>
+                    {!project.mobileImages && (
+                      <span className="absolute bottom-4 right-4 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full bg-primary text-primary-foreground opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                        <ArrowUpRight className="h-5 w-5" />
+                      </span>
+                    )}
                   </div>
-                  <div className="flex items-center justify-between gap-4 px-2 pb-2 pt-4 sm:px-3 sm:pb-3">
-                    <div>
-                      <h2 className="text-lg font-semibold text-white transition-colors group-hover:text-primary sm:text-xl">
-                        {project.title}
-                      </h2>
-                      <p className="mt-1 text-sm text-white/70">{project.client}</p>
+                  {!project.mobileImages && (
+                    <div className="flex items-center justify-between gap-4 px-2 pb-2 pt-4 sm:px-3 sm:pb-3">
+                      <div>
+                        <h2 className="text-lg font-semibold text-white transition-colors group-hover:text-primary sm:text-xl">
+                          {project.title}
+                        </h2>
+                        <p className="mt-1 text-sm text-white/70">{project.client}</p>
+                      </div>
+                      <span className="shrink-0 text-xs font-medium tracking-wide text-white/55">
+                        {project.date}
+                      </span>
                     </div>
-                    <span className="shrink-0 text-xs font-medium tracking-wide text-white/55">
-                      {project.date}
+                  )}
+                  {project.mobileImages && (
+                    <span className="mx-auto mb-2 flex min-h-9 w-fit items-center justify-center rounded-full bg-black px-4 text-[10px] font-bold tracking-wide text-white transition-transform group-hover:scale-105 sm:text-xs">
+                      VER PROYECTO
                     </span>
-                  </div>
+                  )}
                 </Link>
               ))}
             </div>

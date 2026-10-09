@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CalendarDays, Check, UserRound } from "lucide-react";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import MobileProjectGallery from "@/components/portfolio/mobile-project-gallery";
 import { getPortfolioProject, portfolioProjects } from "@/lib/portfolio-data";
 
 interface PortfolioProjectPageProps {
@@ -38,6 +39,7 @@ export default async function PortfolioProjectPage({
   if (!project) notFound();
 
   const images = project.images;
+  const mobileImages = project.mobileImages ?? [];
 
   return (
     <div className="flex min-h-screen flex-col bg-[#0077ff] text-foreground">
@@ -49,25 +51,38 @@ export default async function PortfolioProjectPage({
         />
 
         <article className="relative mx-auto max-w-6xl">
-          <Link
-            href="/#proyectos"
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Volver a proyectos
-          </Link>
-
-          <header className="mb-8 flex flex-col gap-6 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-3xl">
-              <p className="mb-4 inline-flex items-center rounded-full border border-white/30 bg-black px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+          <div className="mb-8 flex items-center gap-4">
+            <Link
+              href="/#proyectos"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Volver a proyectos
+            </Link>
+            {mobileImages.length > 0 && (
+              <p className="inline-flex items-center rounded-full border border-white/30 bg-black px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white">
                 {project.categoryLabel}
               </p>
+            )}
+          </div>
+
+          <header
+            className={`mb-8 flex flex-col gap-6 sm:mb-10 sm:flex-row sm:items-end sm:justify-between`}
+          >
+            <div className="max-w-3xl">
+              {mobileImages.length === 0 && (
+                <p className="mb-4 inline-flex items-center rounded-full border border-white/30 bg-black px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+                  {project.categoryLabel}
+                </p>
+              )}
               <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
                 {project.title}
               </h1>
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
-                {project.description}
-              </p>
+              {mobileImages.length === 0 && (
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
+                  {project.description}
+                </p>
+              )}
             </div>
 
             {project.projectLink && (
@@ -83,20 +98,32 @@ export default async function PortfolioProjectPage({
             )}
           </header>
 
-          <div className="overflow-hidden rounded-[24px] border border-white/25 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:rounded-[32px] sm:p-3">
-            <div className="relative h-[clamp(220px,38vw,460px)] overflow-hidden rounded-[18px] bg-black sm:rounded-[24px]">
-              <Image
-                src={`${project.detailImage}&tr=w-1800,h-1000,q-85,f-webp,c-at_max`}
-                alt={`Vista principal de ${project.title}`}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 1152px"
-                quality={85}
-              />
+          {mobileImages.length > 0 ? (
+            <MobileProjectGallery images={mobileImages} title={project.title} />
+          ) : (
+            <div className="overflow-hidden rounded-[24px] border border-white/25 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:rounded-[32px] sm:p-3">
+              <div className="relative h-[clamp(220px,38vw,460px)] overflow-hidden rounded-[18px] bg-black sm:rounded-[24px]">
+                {project.detailImage ? (
+                  <Image
+                    src={`${project.detailImage}&tr=w-1800,h-1000,q-85,f-webp,c-at_max`}
+                    alt={`Vista principal de ${project.title}`}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 1152px"
+                    quality={85}
+                  />
+                ) : null}
+              </div>
             </div>
-          </div>
+          )}
 
-          {images.length > 0 && (
+          {mobileImages.length > 0 && (
+            <p className="mx-auto mt-8 max-w-2xl text-center text-base leading-relaxed text-white/85 sm:text-lg">
+              {project.description}
+            </p>
+          )}
+
+          {images.length > 0 && mobileImages.length === 0 && (
             <section aria-labelledby="project-gallery-title" className="mt-12 sm:mt-16">
               <div className="mb-5 flex items-end justify-between gap-4">
                 <div>

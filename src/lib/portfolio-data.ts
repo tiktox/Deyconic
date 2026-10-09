@@ -18,14 +18,38 @@ export interface PortfolioProject {
   date: string;
   description: string;
   features: string[];
-  mainImage: string;
-  detailImage: string;
+  mainImage?: string;
+  detailImage?: string;
   images: string[];
+  mobileImages?: string[];
+  mobileVideo?: string;
   projectLink?: string;
   aiHint?: string;
 }
 
 export const portfolioProjects: PortfolioProject[] = [
+  {
+    id: "reverglim",
+    slug: "reverglim",
+    title: "REVERGLIM",
+    category: "apps-moviles",
+    categoryLabel: "App móvil",
+    client: "REVERGLIM",
+    date: "2026",
+    description:
+      "Descubre la experiencia móvil de REVERGLIM a través de distintas vistas de su interfaz, presentadas en un formato vertical.",
+    features: ["Interfaz en formato vertical", "Experiencia visual para dispositivos móviles"],
+    images: [],
+    mobileImages: [
+      "https://ik.imagekit.io/8om8rmpb6/jjdfjnjfndnfjdnfjdnfdnjndjfnjdnjf-Photoroom.png?updatedAt=1791580566984&tr=w-480,h-854,q-90,f-webp",
+      "https://ik.imagekit.io/8om8rmpb6/reverglim%20social%20media%202-Photoroom.png?updatedAt=1791580036398&tr=w-480,h-854,q-90,f-webp",
+      "https://ik.imagekit.io/8om8rmpb6/reverglim%20social%20media%203-Photoroom.png?updatedAt=1791580037376&tr=w-480,h-854,q-90,f-webp",
+      "https://ik.imagekit.io/8om8rmpb6/reverglim%20social%20media%201-Photoroom.png?updatedAt=1791580037415&tr=w-480,h-854,q-90,f-webp",
+    ],
+      projectLink: "https://play.google.com/store/apps/details?id=com.reverglim&pcampaignid=web_share",
+    mobileVideo:
+      "https://ik.imagekit.io/8om8rmpb6/reverglim%20movil.mp4?updatedAt=1791469170555&tr=f-mp4",
+  },
   {
     id: "clinicadental",
     slug: "clinica-dental",
@@ -126,7 +150,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "https://ik.imagekit.io/8om8rmpb6/Home%20deyconiclink.png?updatedAt=1791403406895",
       "https://ik.imagekit.io/8om8rmpb6/Home%20deyconiclink.png?updatedAt=1791403406895",
     ],
-    projectLink: "https://taconazo.vercel.app",
+    projectLink: "https://deyconiclink.vercel.app/",
     aiHint: "restaurant website",
   },
   {
@@ -182,8 +206,3 @@ export const portfolioProjects: PortfolioProject[] = [
 export function getPortfolioProject(slug: string) {
   return portfolioProjects.find((project) => project.slug === slug);
 }
-
-
-
-
-

@@ -61,18 +61,58 @@ export default function PortfolioSection() {
                 <Link
                   href={`/proyectos/${project.slug}`}
                   aria-label={`Ver detalles de ${project.title}`}
-                  className="group block overflow-hidden rounded-[20px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                  className={`group block overflow-hidden rounded-[20px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${
+                    project.mobileImages ? "bg-white p-3 text-black sm:p-4" : ""
+                  }`}
                 >
-                  <div className="relative aspect-[9/20] h-full w-full overflow-hidden rounded-[20px]">
-                    <Image
-                      src={`${project.mainImage}&tr=w-1000,h-1400,q-80,f-webp,c-at_max`}
-                      alt={`Vista previa del proyecto ${project.title}`}
-                      fill
-                      sizes="(max-width: 500px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      quality={80}
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                    />
-                  </div>
+                  {project.mobileImages ? (
+                    <>
+                      <h2 className="mb-3 flex items-center justify-center gap-2 text-center text-sm font-black tracking-wide sm:text-base">
+                        {project.title}
+                        <span
+                          aria-label="Aplicación móvil"
+                          className="h-2 w-2 rounded-full bg-green-500"
+                        />
+                      </h2>
+                      <div className="relative mx-auto aspect-[9/16] w-full max-w-[220px] overflow-hidden rounded-[24px] bg-black shadow-lg">
+                        {project.mobileVideo ? (
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="metadata"
+                            aria-label={`Vista previa animada de ${project.title}`}
+                            className="h-full w-full object-cover"
+                          >
+                            <source src={project.mobileVideo} type="video/mp4" />
+                          </video>
+                        ) : (
+                          <Image
+                            src={project.mobileImages[0]}
+                            alt={`Vista previa vertical de ${project.title}`}
+                            fill
+                            sizes="(max-width: 500px) 45vw, 220px"
+                            className="object-cover"
+                          />
+                        )}
+                      </div>
+                      <span className="mx-auto mt-3 flex min-h-9 w-fit items-center justify-center rounded-full bg-black px-4 text-[10px] font-bold tracking-wide text-white transition-transform group-hover:scale-105 sm:text-xs">
+                        VER PROYECTO
+                      </span>
+                    </>
+                  ) : project.mainImage ? (
+                    <div className="relative aspect-[9/20] h-full w-full overflow-hidden rounded-[20px]">
+                      <Image
+                        src={`${project.mainImage}&tr=w-1000,h-1400,q-80,f-webp,c-at_max`}
+                        alt={`Vista previa del proyecto ${project.title}`}
+                        fill
+                        sizes="(max-width: 500px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        quality={80}
+                        className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  ) : null}
                 </Link>
               </motion.article>
             ))}
